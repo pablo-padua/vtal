@@ -1,0 +1,301 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+	<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<div class="page-header">
+			<h1>Solicitação de reembolso</h1>
+		</div>
+		<form name="form" role="form">
+			<div class="hidden" style="display: none;">
+				<input type="hidden" name="WKNumProces" id="WKNumProces">
+				<input type="hidden" name="activity" id="activity">
+				<input type="hidden" name="formMode" id="formMode">
+				<input type="hidden" name="idadePAi" id="idadePAi">
+				<input type="hidden" name="idadeMae" id="idadeMae">
+				<input type="hidden" name="diaCorte" id="diaCorte">
+				<input type="hidden" name="dtSolicitacao" id="dtSolicitacao">
+				<input type="hidden" name="statusProcesso" id="statusProcesso" value="pendente">
+				<!-- pendente, aprovado, reprovado/cancelado -->
+                <input type="hidden" name="idExterno" id="idExterno">
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Solicitação</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4 form-group">
+							<label class="control-label" for="idEmpresa">ID</label>
+							<input type="text" name="idEmpresa" id="idEmpresa" class="form-control" readonly />
+						</div>
+						<div class="col-md-8 form-group">
+							<label class="control-label" for="nomeEmpresa">Empresa</label>
+							<input type="text" name="nomeEmpresa" id="nomeEmpresa" class="form-control" readonly />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 form-group">
+							<label class="control-label" for="celularColaborador">Celular</label>
+							<input type="text" name="celularColaborador" id="celularColaborador" class="form-control"
+								readonly />
+						</div>
+						<div class="col-md-8 form-group">
+							<label class="control-label" for="nomeColaborador">Nome</label>
+							<input type="text" name="nomeColaborador" id="nomeColaborador" class="form-control"
+								readonly />
+							<input type="hidden" name="emailColaborador" id="emailColaborador">
+							<input type="hidden" name="generoColaborador" id="generoColaborador">
+							<input type="hidden" name="chapaColaborador" id="chapaColaborador">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default inicio">
+				<div class="panel-heading">
+					<h3 class="panel-title">Informações do dependente</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4 form-group tipo_reembolso alertaCampo">
+							<label class="control-label" for="tipoReembolso">Tipo de reembolso</label>
+							<select name="tipoReembolso" id="tipoReembolso" class="form-control"
+								onchange="typeReembolso()">
+								<option value=""></option>
+								<option value="1">Auxílio creche</option>
+								<option value="2">Babá</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group alertaCampo nome_dependente">
+							<label class="control-label" for="nomeDependente">Nome do dependente</label>
+							<input type="zoom" id="nomeDependente" name="nomeDependente" data-zoom="{
+								'displayKey':'NOME',
+								'datasetId':'dependendes_reembolso',
+								'maximumSelectionLength':'1',
+								'placeholder':'Escolha o dependente',
+								'fields':[
+									{
+									  'field':'NOME',
+									  'label':'Nome',
+									  'standard':'true'
+									}
+								]
+							 }" />
+							<input type="hidden" name="idDependente" id="idDependente">
+							<input type="hidden" name="qtdMatriculaBaba" id="qtdMatriculaBaba">
+							<input type="hidden" name="qtdMensalidadeBaba" id="qtdMensalidadeBaba">
+							<input type="hidden" name="qtdMatriculaCreche" id="qtdMatriculaCreche">
+							<input type="hidden" name="qtdMensalidadeCreche" id="qtdMensalidadeCreche">
+						</div>
+						<div class="col-md-3 form-group">
+							<label class="control-label" for="grauParentesco">Grau de parentesco</label>
+							<input type="text" name="grauParentesco" id="grauParentesco" class="form-control"
+								readonly />
+						</div>
+						<div class="col-md-3 form-group">
+							<label class="control-label" for="dataNascimento">Data de nascimento</label>
+							<input type="text" name="dataNascimento" id="dataNascimento" class="form-control"
+								readonly />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default panelCreche inicio" style="display: none;">
+				<div class="panel-heading">
+					<h3 class="panel-title">Auxilio creche</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4 form-group alertaCampo cnpj_auxilio">
+							<label class="control-label" for="cnpjAuxilio">CNPJ</label>
+							<input type="text" name="cnpjAuxilio" id="cnpjAuxilio" class="form-control"
+								mask="99.999.999/9999-99" />
+						</div>
+						<div class="col-md-8 form-group alertaCampo nome_auxilio">
+							<label class="control-label" for="nomeAuxilio">Nome</label>
+							<input type="text" name="nomeAuxilio" id="nomeAuxilio" class="form-control" />
+						</div>
+					</div><br>
+					<div class="row hiddenButton" style="display: none;">
+						<div class="form-group col-md-4">
+							<h5 class="fs-cursor-pointer " id="adicionarCotacao" onclick="addLinha()">
+								<i class="flaticon flaticon-normal flaticon-add-plus icon-md" aria-hidden="true"></i>
+								Registrar novo pagamento
+							</h5>
+						</div>
+					</div>
+					<div class="row">
+						<table tablename="tabela_auxilio_creche" class="table col-md-12" id="tabela_auxilio_creche"
+							noaddbutton="true" nodeletebutton="true">
+							<thead>
+								<tr id="tableHeadRow">
+									<th class="tableColumn">Tipo de pagamento</th>
+									<th class="tableColumn">Competência</th>
+									<th class="tableColumn">Valor</th>
+									<th class="tableColumn">Anexar arquivos</th>
+								</tr>
+							</thead>
+							<tbody id="tableBodyRow">
+								<tr>
+									<td>
+										<div class="alertaCampo">
+											<select name="tipoPagamentoAuxilio" id="tipoPagamentoAuxilio"
+												class="form-control" onchange="checkMatricula(this)">
+												<option value=""></option>
+												<option value="1">Matrícula</option>
+												<option value="2">Mensalidade</option>
+											</select>
+										</div>
+									</td>
+									<td>
+										<div class="alertaCampo">
+											<input type="text" name="dataPagamentoAuxilio" id="dataPagamentoAuxilio"
+												class="form-control" mask="00/0000"/>
+										</div>
+									</td>
+									<td>
+										<div class="alertaCampo">
+											<input type="text" name="valorPagamentoAuxilio" id="valorPagamentoAuxilio"
+												class="form-control" maxlength="11" oninput="mascaraMoeda(this)" />
+										</div>
+									</td>
+									<td>
+										<div>
+											<input type="button" value="Anexar arquivos" class="form-control button"
+												onclick="anexar()">
+										</div>
+									</td>
+									<td>
+										<button onClick="removeLinha(this)"
+											class="fluigicon fluigicon-trash fluigicon-md btn hiddenButton"
+											style="position: initial; background: white; display: none;"></button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default panelBaba inicio" style="display: none;">
+				<div class="panel-heading">
+					<h3 class="panel-title">Babá</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-4 form-group alertaCampo cpf_baba">
+							<label class="control-label" for="cpfBaba">CPF</label>
+							<input type="text" name="cpfBaba" id="cpfBaba" class="form-control" mask="999.999.999-99" />
+						</div>
+						<div class="col-md-8 form-group alertaCampo nome_baba">
+							<label class="control-label" for="nomeBaba">Nome</label>
+							<input type="text" name="nomeBaba" id="nomeBaba" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 form-group alertaCampo tipo_pagamentoBaba">
+							<label for="tipoPagamentoBaba">Tipo de pagamento</label>
+							<select name="tipoPagamentoBaba" id="tipoPagamentoBaba" class="form-control"
+								onchange="checkMatricula(this)">
+								<option value=""></option>
+								<option value="1">Matrícula</option>
+								<option value="2">Mensalidade</option>
+							</select>
+						</div>
+						<div class="col-md-3 form-group alertaCampo data_pagamentoBaba">
+							<label class="control-label" for="dataPagamentoBaba">Competência</label>
+							<input type="text" name="dataPagamentoBaba" id="dataPagamentoBaba" class="form-control"
+								mask="00/0000"/>
+						</div>
+						<div class="col-md-3 form-group alertaCampo valor_pagamentoBaba">
+							<label class="control-label" for="valorPagamentoBaba">Valor</label>
+							<input type="text" name="valorPagamentoBaba" id="valorPagamentoBaba" class="form-control"
+								maxlength="11" oninput="mascaraMoeda(this)" />
+						</div>
+						<div class="col-md-3 form-group">
+							<label class="control-label" for="">Anexar arquivos</label>
+							<input type="button" value="Anexar arquivos" class="form-control button" onclick="anexar()">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default panelDoc inicio" style="display: none;">
+				<div class="panel-heading">
+					<h3 class="panel-title">Documentação necessária</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row panelText">
+
+					</div> <br>
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<div class="custom-checkbox custom-checkbox-success">
+								<input type="checkbox" name="checkDocumentos" id="checkDocumentos" value="s">
+								<label for="checkDocumentos"> <b>Li e confirmo a entrega dos documentos
+										acima.</b></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default aprovacao" style="display: none;">
+				<div class="panel-heading">
+					<h3 class="panel-title">Aprovação</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 form-group">
+							<label class="control-label" for="idAprovador">ID do aprovador</label>
+							<input type="text" name="idAprovador" id="idAprovador" class="form-control" readonly />
+						</div>
+						<div class="col-md-6 form-group">
+							<label class="control-label" for="nomeAprovador">Nome do aprovador</label>
+							<input type="text" name="nomeAprovador" id="nomeAprovador" class="form-control" readonly />
+						</div>
+						<div class="col-md-3 form-group">
+							<label class="control-label" for="dataAprovacao">Data/hora da aprovação</label>
+							<input type="text" name="dataAprovacao" id="dataAprovacao" class="form-control" readonly />
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-md-12 alertaCampo div_aprovacao">
+							<label class="control-label"> Aprovação</label>
+							<div class="custom-radio custom-radio-success">
+								<input type="radio" name="aprovacao" id="aprovar" value="aprovar" />
+								<label for="aprovar">Prosseguir com a solicitação</label>
+							</div>
+							<div class="custom-radio custom-radio-danger">
+								<input type="radio" name="aprovacao" id="reprovar" value="reprovar">
+								<label for="reprovar">Reprovar toda a solicitação</label>
+							</div>
+							<div class="custom-radio custom-radio-info">
+								<input type="radio" name="aprovacao" id="ajustar" value="ajustar">
+								<label for="ajustar">Solicitar ajuste nas informações</label>
+							</div>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-md-12 form-group obs alertaCampo">
+							<label class="control-label" for="obs">Observações</label>
+							<textarea name="obs" id="obs" cols="30" rows="3" class="form-control"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+</html>
