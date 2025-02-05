@@ -436,12 +436,7 @@ function calcularIdade(dataNascimento, idadeMax) {
 }
 
 $(document).ready(function () {
-  FLUIGC.toast({
-    title: "",
-    message: `Solicitações realizadas após o dia 10, terão o reembolso na folha de pagamento do mês seguinte`,
-    type: "warning",
-    timeout: 15000,
-  });
+  const diaCorte = buscaDiaCorte();
 
   const idExterno = $("#idExterno").val();
   if (idExterno == "Erro ao buscar idExterno") {
@@ -490,7 +485,7 @@ $(document).ready(function () {
       if ($("#diaCorte").val() < dataAtual.getDate()) {
         FLUIGC.toast({
           title: "",
-          message: `Solicitações realizadas após o dia 10, terão o reembolso na folha de pagamento do mês seguinte`,
+          message: `Solicitações realizadas após o dia ${diaCorte}, terão o reembolso na folha de pagamento do mês seguinte`,
           type: "warning",
           timeout: 15000,
         });
@@ -510,17 +505,33 @@ $(document).ready(function () {
     }
   }
 
-  $("input").on("input", function () {
+  $("input[type='text']").on("input", function () {
     let value = $(this).val() || "";
-
+  
     // Normalize and remove diacritics
     value = value
       .normalize("NFD") // Decompose combined letters into base + diacritics
-      .replace(/[\u0300-\u036f]/g, ""); // Remove diacritical marks
-
-    // (Optional) Convert to uppercase
+      .replace(/[\u0300-\u036f]/g, "") // Remove diacritical marks
+      .replace(/[^a-zA-Z0-9.,-\s]/g, ""); // Remove special characters
+  
+    // Convert to uppercase
     value = value.toUpperCase();
-
+  
     $(this).val(value);
-  });
 });
+});
+
+function buscaDiaCorte() {
+    var campos = ["diaCorte"]
+    var c1 = [DatasetFactory.createConstraint('userSecurityId', 'gabriela.vieira', 'gabriela.vieira', ConstraintType.MUST)];
+    var parametros = DatasetFactory.getDataset("ds_parametros_beneficios", campos, c1, null);
+    if (!parametros?.values[0]?.diaCorte) {
+        return FLUIGC.toast({
+            title: "",
+            message: `Erro ao buscar dia de corte`,
+            type: "warning",
+            timeout: 15000,
+        });
+    }
+    return parametros.values[0].diaCorte;
+}

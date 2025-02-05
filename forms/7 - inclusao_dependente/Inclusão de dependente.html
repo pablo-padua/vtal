@@ -1,0 +1,506 @@
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <link type="text/css" rel="stylesheet" href="custom.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+    <script type="text/javascript" src="custom.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <div class="page-header">
+            <h1>Inclusão de dependente</h1>
+        </div>
+        <form name="form" role="form">
+            <div class="hidden" style="display: none;">
+                <input type="hidden" name="WKNumProces" id="WKNumProces">
+                <input type="hidden" name="activity" id="activity">
+                <input type="hidden" name="formMode" id="formMode">
+                <input type="hidden" name="diaCorte" id="diaCorte">
+                <input type="hidden" name="dtSolicitacao" id="dtSolicitacao">
+                <input type="hidden" name="dependenteUltimoID" id="dependenteUltimoID" value="1">
+                <input type="hidden" name="IsDependentePCD" id="IsDependentePCD">
+                <input type="hidden" name="tipoSolicitacaoIncluirAlterar" id="tipoSolicitacaoIncluirAlterar">
+                <input type="hidden" name="idExterno" id="idExterno">
+            </div>
+            <div class="panel panel-default activity0">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Solicitação</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label class="control-label" for="idEmpresa">ID</label>
+                            <input type="text" name="idEmpresa" id="idEmpresa" class="form-control" readonly />
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <label class="control-label" for="nomeEmpresa">Empresa</label>
+                            <input type="text" name="nomeEmpresa" id="nomeEmpresa" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label class="control-label" for="celularColaborador">Celular</label>
+                            <input type="text" name="celularColaborador" id="celularColaborador" class="form-control"
+                                readonly />
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <label class="control-label" for="nomeColaborador">Nome</label>
+                            <input type="text" name="nomeColaborador" id="nomeColaborador" class="form-control"
+                                readonly />
+                            <input type="hidden" name="emailColaborador" id="emailColaborador">
+                            <input type="hidden" name="generoColaborador" id="generoColaborador">
+                            <input type="hidden" name="chapaColaborador" id="chapaColaborador">
+                        </div>
+                    </div><br><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="custom-radio custom-radio-success">
+                                <input type="radio" name="tipoSolicitacao" id="incluirDependente" value="incluir" />
+                                <label for="incluirDependente">Incluir dependente</label>
+                            </div>
+                            <div class="custom-radio custom-radio-info">
+                                <input type="radio" name="tipoSolicitacao" id="alterarDependente" value="alterar">
+                                <label for="alterarDependente">Alterar dependente</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelDependentes" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dependentes</h3>
+                </div>
+                <div class="panel-body">
+                    <!-- <div class="row">
+                        <div class="col-md-12 div-tabela-dependentes">
+                            <table tablename="tabelaDependentes" id="tabelaDependentes" nodeletebutton="true"
+                                noaddbutton="true" border="1" class="table table-striped tabela-dependentes">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%;"></th>
+                                        <th style="width: 5%;"></th>
+                                        <th>Cód. do dependente</th>
+                                        <th>Nome do dependente</th>
+                                        <th>Relacionamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align: baseline;">
+                                            <button id="btnRemoveDependente" class="btn btn-danger">
+                                                <i class="flaticon flaticon-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button id="btnRemoveDependente" class="btn btn-danger">
+                                                <i class="flaticon flaticon-view" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="codigoDependente" id="codigoDependente"
+                                                class="form-control" readonly />
+                                            <input type="hidden" name="dependenteIntegrado" id="dependenteIntegrado"
+                                                class="form-control" readonly />
+                                        </td>
+                                        <td><input type="text" name="nomeDependente" id="nomeDependente"
+                                                class="form-control" readonly /></td>
+                                        <td><input type="text" name="relacionamentoDependente"
+                                                id="relacionamentoDependente" class="form-control" readonly /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-6 form-group alertaCampo nome_dependente">
+                            <label class="control-label" for="nomeDependente">Nome do dependente</label>
+                            <input type="zoom" id="nomeDependente" name="nomeDependente" data-zoom="{
+								'displayKey':'NOME',
+								'datasetId':'dependendes_reembolso',
+								'maximumSelectionLength':'1',
+								'placeholder':'Escolha o dependente',
+								'fields':[
+									{
+									  'field':'NOME',
+									  'label':'Nome',
+									  'standard':'true'
+									}
+								]
+							 }" />
+                            <input type="hidden" name="idDependente" id="idDependente">
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="grauParentesco">Relacionamento</label>
+                            <input type="text" name="grauParentesco" id="grauParentesco" class="form-control"
+                                readonly />
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="dataNascimento">Data de nascimento</label>
+                            <input type="text" name="dataNascimento" id="dataNascimento" class="form-control"
+                                readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelDadosDependente" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dados Dependente</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 form-group alertaCampo dependente_NomeCompleto">
+                            <label class="control-label" for="dependenteNomeCompleto">Nome completo</label>
+                            <input type="text" name="dependenteNomeCompleto" id="dependenteNomeCompleto"
+                                class="form-control" />
+                        </div>
+                        <div class="col-md-6 form-group alertaCampo dependente_NomeMae">
+                            <label class="control-label" for="dependenteNomeMae">Nome completo da mãe</label>
+                            <input type="text" name="dependenteNomeMae" id="dependenteNomeMae" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group alertaCampo dependente_DtNascimento">
+                            <label class="control-label" for="dependenteDtNascimento">Data de nascimento</label>
+                            <input type="text" name="dependenteDtNascimento" id="dependenteDtNascimento"
+                                class="form-control" />
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo cpf_Dependente">
+                            <label class="control-label" for="cpfDependente">CPF</label>
+                            <input type="text" name="cpfDependente" id="cpfDependente" class="form-control"
+                                mask="000.000.000-00" />
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo dependente_Sexo">
+                            <label class="control-label" for="dependenteSexo">Sexo</label>
+                            <select name="dependenteSexo" id="dependenteSexo" class="form-control">
+                                <option value=""></option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo dependente_GrauInstrucao">
+                            <label class="control-label" for="dependenteGrauInstrucao">Grau de instrução</label>
+                            <select name="dependenteGrauInstrucao" id="dependenteGrauInstrucao" class="form-control">
+                                <option value=""></option>
+                                <option value="1">Analfabeto</option>
+                                <option value="2">Até o 5º ano incompleto do ensino fundamental</option>
+                                <option value="3">5º ano completo do ensino fundamental</option>
+                                <option value="4">Do 6º ao 9º ano do ensino fundamental</option>
+                                <option value="5">Ensino fundamental completo</option>
+                                <option value="6">Ensino médio incompleto</option>
+                                <option value="7">Ensino médio completo</option>
+                                <option value="8">Educação superior incompleto</option>
+                                <option value="9">Educação superior completo</option>
+                                <option value="A">Pós Grad. incompleto</option>
+                                <option value="B">Pós Grad. completo</option>
+                                <option value="C">Mestrado incompleto</option>
+                                <option value="D">Mestrado completo</option>
+                                <option value="E">Doutorado incompleto</option>
+                                <option value="F">Doutorado completo</option>
+                                <option value="G">Pós Dout.incompleto</option>
+                                <option value="H">Pós Dout.completo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group alertaCampo dependente_GrauParentesco">
+                            <label class="control-label" for="dependenteGrauParentesco">Grau de parentesco</label>
+                            <select name="dependenteGrauParentesco" id="dependenteGrauParentesco" class="form-control" onchange="mostraImpostoRenda();">
+                                <option value=""></option>
+                                <option value="1">Filho(a)</option>
+                                <option value="3">Filho(a) Inválido</option>
+                                <option value="5">Cônjuge</option>
+                                <option value="C">Companheiro(a)</option>
+                                <option value="G">Ex-conjuge</option>
+                                <option value="P">Ex-companheiro(a)</option>
+                                <option value="N">Irmã(o) Inválido</option>
+                                <option value="D">Enteado(a)</option>
+                                <option value="X">Ex-enteado(a)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo dependente_MunicipioNascimento">
+                            <label class="control-label" for="dependenteMunicipioNascimento">Município de
+                                nascimento</label>
+                            <input type="text" name="dependenteMunicipioNascimento" id="dependenteMunicipioNascimento"
+                                class="form-control" />
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo dependente_EstadoCivil">
+                            <label class="control-label" for="dependenteEstadoCivil">Estado civil</label>
+                            <select name="dependenteEstadoCivil" id="dependenteEstadoCivil" class="form-control">
+                                <option value=""></option>
+                                <option value="S">Solteiro(a)</option>
+                                <option value="C">Casado(a)</option>
+                                <option value="V">Viúvo(a)</option>
+                                <option value="D">Divorciado(a)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo dependente_universitario">
+                            <label class="control-label" for="dependenteUniversitario">Dependente é universitario ?</label>
+                            <select name="dependenteUniversitario" id="dependenteUniversitario" class="form-control">
+                                <option value=""></option>
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="numeroDeclaracao">Número declaração
+                                nascido vivo</label>
+                            <input type="text" name="numeroDeclaracao" id="numeroDeclaracao" class="form-control" />
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <div class="custom-checkbox custom-checkbox-success">
+                                <br>
+                                <input type="checkbox" name="dependentePCD" id="dependentePCD" value="dependentePCD">
+                                <label for="dependentePCD"><b>Dependente pessoa com deficiência</b></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group" style="display: none;" id="alteraBnfPcd">
+                            <div class="custom-checkbox custom-checkbox-success">
+                                <br>
+                                <input type="checkbox" name="alterarBnfPcd" id="alterarBnfPcd">
+                                <label for="alterarBnfPcd"><b> Alterar apenas o benefício do dependente pessoa com deficiência?</b></label>
+                            </div>
+                            <input type="hidden" name="isAlterarBnfPcd" id="isAlterarBnfPcd" value="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelBeneficios" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Benefícios</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 form-group alertaCampo tem_Medica">
+                            <label class="control-label" for="temMedica">Assistencia Médica</label>
+                            <select name="temMedica" id="temMedica" class="form-control">
+                                <option value=""></option>
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
+                            </select>
+                            <input type="hidden" name="DTINCLUSAOASSMED" id="DTINCLUSAOASSMED">
+                            <input type="hidden" name="DTEXCLUSAOASSMED" id="DTEXCLUSAOASSMED">
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo tem_Odonto">
+                            <label class="control-label" for="temOdonto">Assistencia Odontológica</label>
+                            <select name="temOdonto" id="temOdonto" class="form-control">
+                                <option value=""></option>
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
+                            </select>
+                            <input type="hidden" name="DTINCLUSAOASSODO" id="DTINCLUSAOASSODO">
+                            <input type="hidden" name="DTEXCLUSAOASSODO" id="DTEXCLUSAOASSODO">
+                        </div>
+                        <div class="col-md-3 form-group alertaCampo tem_Medicamento">
+                            <label class="control-label" for="temMedicamento">Auxilio Medicamento</label>
+                            <select name="temMedicamento" id="temMedicamento" class="form-control">
+                                <option value=""></option>
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
+                            </select>
+                            <input type="hidden" name="DTINCLUSAOAUXMED" id="DTINCLUSAOAUXMED">
+                            <input type="hidden" name="DTEXCLUSAOAUXMED" id="DTEXCLUSAOAUXMED">
+                        </div>
+                        <div id="mostraIR" class="col-md-3 form-group alertaCampo tem_IR" style="display: none;">
+                            <label class="control-label" for="temIR">Imposto de Renda</label>
+                            <select name="temIR" id="temIR" class="form-control">
+                                <option value=""></option>
+                                <option value="1">Ativo</option>
+                                <option value="0">Inativo</option>
+                            </select>
+                            <input type="hidden" name="DTINCLUSAOIR" id="DTINCLUSAOIR">
+                            <input type="hidden" name="DTEXCLUSAOIR" id="DTEXCLUSAOIR">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row panelDoc">
+                        <div class="col-md-12 form-group">
+                            <p><b>
+                                    Pelo presente, autorizo ao Estipulante indicado neste formulário, descontar
+                                    mensalmente do meu salário, em folha de pagamento,
+                                    a importância relativa à minha contribuição para o produto SulAmérica Odontológico,
+                                    contratado em meu benefício e de meus dependentes elegíveis,
+                                    com a seguradora SulAmérica, por força de Cláusulas Adicionais e Especiais da
+                                    Apólice.
+                                </b></p>
+                        </div>
+                    </div>
+                    <div class="row panelDoc">
+                        <div class="col-md-12 form-group alertaCampo check_Beneficios">
+                            <div class="custom-checkbox custom-checkbox-success">
+                                <input type="checkbox" name="checkBeneficios" id="checkBeneficios" value="s">
+                                <label for="checkBeneficios">Li e concordo com a declaração
+                                    acima.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelDoc" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Documentação necessária</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <ul>
+                            <li><b>CPF.</b></li>
+                            <li><b>Certidão de Casamento (emitida pelo cartório de registro civil) e CPF.</b></li>
+                        </ul>
+                    </div> <br>
+                    <div class="row">
+                        <div class="col-md-12 form-group text-center">
+                            <button id="btnAnexos" class="btn btn-info" onclick="anexar()"><i
+                                    class="flaticon flaticon-add-plus" aria-hidden="true"></i> Anexar arquivo</button>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12 form-group alertaCampo check_Documentos">
+                            <div class="custom-checkbox custom-checkbox-success">
+                                <input type="checkbox" name="checkDocumentos" id="checkDocumentos" value="s">
+                                <label for="checkDocumentos">Li e confirmo a entrega dos documentos
+                                    acima.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelDoc" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Veracidade das informações</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <p><b>Declaro que as informações presentes são verídicas e serão submetidas à aprovação do
+                                    RH, sob pena de suspensão do benefício a mim concedido,
+                                    sem prejuízo de aplicação de pertinente sanção disciplinar, para os casos
+                                    discordantes ao Código de Ética e legislação aplicável.</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group alertaCampo check_Veracidade">
+                            <div class="custom-checkbox custom-checkbox-success">
+                                <input type="checkbox" name="checkVeracidade" id="checkVeracidade" value="s">
+                                <label for="checkVeracidade">Li e aceito a declaração acima.</label>
+                            </div>
+                        </div>
+                    </div><br><br>
+                    <div class="row">
+                        <div class="col-md-6 form-group alertaCampo local_Veracidade">
+                            <label class="control-label" for="localVeracidade">Local</label>
+                            <input type="text" name="localVeracidade" id="localVeracidade" class="form-control"/>
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="dataVeracidade">Data</label>
+                            <input type="text" name="dataVeracidade" id="dataVeracidade" class="form-control"
+                                readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelAprovacaoSaude" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Aprovação do time de saúde</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="idAprovadorSaude">ID do aprovador</label>
+                            <input type="text" name="idAprovadorSaude" id="idAprovadorSaude" class="form-control"
+                                readonly />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="control-label" for="nomeAprovadorSaude">Nome do aprovador</label>
+                            <input type="text" name="nomeAprovadorSaude" id="nomeAprovadorSaude" class="form-control"
+                                readonly />
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="dataAprovacaoSaude">Data/hora da aprovação</label>
+                            <input type="text" name="dataAprovacaoSaude" id="dataAprovacaoSaude" class="form-control"
+                                readonly />
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12 div_aprovacaoSaude">
+                            <label class="control-label"> Aprovação</label>
+                            <div class="custom-radio custom-radio-success">
+                                <input type="radio" name="aprovacaoSaude" id="aprovarSaude" value="aprovar" />
+                                <label for="aprovarSaude">Prosseguir com a solicitação</label>
+                            </div>
+                            <div class="custom-radio custom-radio-danger">
+                                <input type="radio" name="aprovacaoSaude" id="reprovarSaude" value="reprovar">
+                                <label for="reprovarSaude">Reprovar toda a solicitação</label>
+                            </div>
+                            <div class="custom-radio custom-radio-info">
+                                <input type="radio" name="aprovacaoSaude" id="ajustarSaude" value="ajustar">
+                                <label for="ajustarSaude">Solicitar ajuste nas informações</label>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12 form-group obs_Saude">
+                            <label class="control-label" for="obsSaude">Observações</label>
+                            <textarea name="obsSaude" id="obsSaude" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panelAprovacaoRH" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Aprovação do time de recursos humanos</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="idAprovadorRH">ID do aprovador</label>
+                            <input type="text" name="idAprovadorRH" id="idAprovadorRH" class="form-control" readonly />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="control-label" for="nomeAprovadorRH">Nome do aprovador</label>
+                            <input type="text" name="nomeAprovadorRH" id="nomeAprovadorRH" class="form-control"
+                                readonly />
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="control-label" for="dataAprovacaoRH">Data/hora da aprovação</label>
+                            <input type="text" name="dataAprovacaoRH" id="dataAprovacaoRH" class="form-control"
+                                readonly />
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label"> Aprovação</label>
+                            <div class="custom-radio custom-radio-success">
+                                <input type="radio" name="aprovacaoRH" id="aprovarRH" value="aprovar" />
+                                <label for="aprovarRH">Prosseguir com a solicitação</label>
+                            </div>
+                            <div class="custom-radio custom-radio-danger">
+                                <input type="radio" name="aprovacaoRH" id="reprovarRH" value="reprovar">
+                                <label for="reprovarRH">Reprovar toda a solicitação</label>
+                            </div>
+                            <div class="custom-radio custom-radio-info">
+                                <input type="radio" name="aprovacaoRH" id="ajustarRH" value="ajustar">
+                                <label for="ajustarRH">Solicitar ajuste nas informações</label>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-12 form-group obs_RH">
+                            <label class="control-label" for="obsRH">Observações</label>
+                            <textarea name="obsRH" id="obsRH" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

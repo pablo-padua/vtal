@@ -10,7 +10,7 @@ function servicetask17(attempt, message) {
 		contraint.push(DatasetFactory.createConstraint("dataServer", "FopDependData", "FopDependData", ConstraintType.MUST))
 		var saveRecord = DatasetFactory.getDataset("saveRecord_rm", null, contraint, null);
 
-		if (saveRecord != null && saveRecord.values.length > 0) {
+		if (saveRecord != null && saveRecord.rowsCount > 0) {
 			var succes = saveRecord.getValue(0, "success");
 			log.info("RETORNO saveRecord");
 			log.dir(saveRecord);
@@ -83,6 +83,18 @@ function createXml() {
 		DTEXCLUSAOASSODO = "";
 	}
 
+	var IMPOSTORENDA = hAPI.getCardValue("temIR");
+	var DTINCLUSAOIR = hAPI.getCardValue("DTINCLUSAOIR");
+	var DTEXCLUSAOIR = hAPI.getCardValue("DTEXCLUSAOIR");
+
+	if (IMPOSTORENDA == "0") {
+		DTEXCLUSAOIR = hAPI.getCardValue("dataAprovacaoRH").substr(0, 10);
+	}
+	if (IMPOSTORENDA == "1") {
+		DTINCLUSAOIR = hAPI.getCardValue("dataAprovacaoRH").substr(0, 10);
+		DTEXCLUSAOIR = "";
+	}
+
 	var AUXMEDICAMENTO = hAPI.getCardValue("temMedicamento");
 	var DTINCLUSAOAUXMED = hAPI.getCardValue("DTINCLUSAOAUXMED");
 	var DTEXCLUSAOAUXMED = hAPI.getCardValue("DTEXCLUSAOAUXMED");
@@ -123,6 +135,7 @@ function createXml() {
 	newElement += setNode("NUMDECLARANASCVIVO", NUMDECLARANASCVIVO);
 	newElement += setNode("INCASSISTMEDICA", INCASSISTMEDICA);
 	newElement += setNode("INCASSISTODONTO", INCASSISTODONTO);
+	newElement += setNode("INCIRRF", IMPOSTORENDA);
 
 	newElement += "</PFDepend><PFDEPENDCOMPL>"
 	newElement += setNode("CODCOLIGADA", CODCOLIGADA);
@@ -138,6 +151,8 @@ function createXml() {
 	newElement += setNode("DTEXCLUSAOASSODO", DTEXCLUSAOASSODO);
 	newElement += setNode("DTINCLUSAOAUXMED", DTINCLUSAOAUXMED);
 	newElement += setNode("DTEXCLUSAOAUXMED", DTEXCLUSAOAUXMED);
+	newElement += setNode("DTINCLUSAOIR", DTINCLUSAOIR);
+	newElement += setNode("DTEXCLUSAOIR", DTEXCLUSAOIR);
 	newElement += "</PFDEPENDCOMPL>"
 
 

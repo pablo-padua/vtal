@@ -1,0 +1,13 @@
+.div-tabela-dependentes{
+	max-height: 500px;
+	overflow: auto;
+}
+
+.tabela-beneficios th{
+    width: 33% !important;
+    padding: 5px !important;
+}
+
+.tabela-beneficios td{
+	padding: 3px !important;
+}

@@ -1,0 +1,22 @@
+.tabela-500{
+	max-height: 500px;
+	overflow: auto;
+}
+
+.custom-alert {
+    background-color: #f8f9fc;
+    border-left: 4px solid #007bff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.custom-alert h5 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.custom-alert p {
+    color: #343a40;
+}

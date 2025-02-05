@@ -1,0 +1,741 @@
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <link type="text/css" rel="stylesheet" href="custom.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+    <script type="text/javascript" src="custom.js"></script>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <div class="page-header">
+            <h1>Solicitação e manutenção de benefícios</h1>
+        </div>
+        <form name="form" role="form">
+            <div class="hidden" style="display: none;">
+                <input type="hidden" name="WKNumProces" id="WKNumProces">
+                <input type="hidden" name="activity" id="activity">
+                <input type="hidden" name="formMode" id="formMode">
+                <input type="hidden" name="dtSolicitacao" id="dtSolicitacao">
+                <input type="hidden" name="diaCorte" id="diaCorte">
+                <input type="hidden" name="permiteOdonto" id="permiteOdonto">
+                <input type="hidden" name="idMetLife" id="idMetLife">
+                <input type="hidden" name="idExterno" id="idExterno">
+            </div>
+            <div class="inicio">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Solicitação</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                <label class="control-label" for="idEmpresa">Coligada</label>
+                                <input type="text" name="idEmpresa" id="idEmpresa" class="form-control" readonly />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label" for="celularColaborador">Celular</label>
+                                <input type="text" name="celularColaborador" id="celularColaborador"
+                                    class="form-control" readonly />
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label class="control-label" for="cpfColaborador">CPF</label>
+                                <input type="text" name="cpfColaborador" id="cpfColaborador" class="form-control"
+                                    readonly />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label" for="nomeColaborador">Nome</label>
+                                <input type="text" name="nomeColaborador" id="nomeColaborador" class="form-control"
+                                    readonly />
+                                <input type="hidden" name="emailColaborador" id="emailColaborador" />
+                                <input type="hidden" name="generoColaborador" id="generoColaborador" />
+                                <input type="hidden" name="chapaColaborador" id="chapaColaborador" />
+                                <input type="hidden" name="salarioColaborador" id="salarioColaborador" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-alert" role="alert" id="divWarnChangedBenefits" style="display: none;">
+					<h5>Benefícios alterados</h5>
+					<p id="warnChangedBenefits"></p>
+				</div>
+
+                <div class="panel panel-default panelBeneficios">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Selecione o benefício que deseja solicitar ou alterar</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+
+                                <div class="checkbox valeTransporte">
+                                    <label>
+                                        <input type="checkbox" name="valeTransporte" id="valeTransporte" value="S"
+                                            onchange="verificarBeneficios()" />
+                                        Vale-transporte
+                                    </label>
+                                </div>
+                                <div class="checkbox valeRefeicaoAlimentacao">
+                                    <label>
+                                        <input type="checkbox" name="valeRefeicaoAlimentacao"
+                                            id="valeRefeicaoAlimentacao" value="S" onchange="verificarBeneficios()" />
+                                        Vale-refeição/alimentação
+                                    </label>
+                                </div>
+                                <div class="checkbox planoOdontologico">
+                                    <label>
+                                        <input type="checkbox" name="planoOdontologico" id="planoOdontologico" value="S"
+                                            onchange="verificarBeneficios()" />
+                                        Plano odontológico
+                                    </label>
+                                </div>
+                                <div class="checkbox previdenciaPrivada">
+                                    <label>
+                                        <input type="checkbox" name="previdenciaPrivada" id="previdenciaPrivada"
+                                            value="S" onchange="verificarBeneficios()" />
+                                        Previdência privada
+                                    </label>
+                                </div>
+                                <div class="checkbox seguroVida">
+                                    <label>
+                                        <input type="checkbox" name="seguroVida" id="seguroVida" value="S"
+                                            onchange="verificarBeneficios()" />
+                                        Seguro de vida
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAINEL DE VALE-TRANSPORTE -->
+                <div class="panel panel-default" id="painelValeTransporte">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Vale-transporte</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2 form-group alertaCampo enderecoCep">
+                                <label class="control-label" for="enderecoCep">CEP</label>
+                                <input type="text" name="enderecoCep" id="enderecoCep" class="form-control"
+                                    mask="00000-000" readonly />
+                            </div>
+                            <div class="col-md-8 form-group alertaCampo enderecoLogradouro">
+                                <label class="control-label" for="enderecoLogradouro">Logradouro</label>
+                                <input type="text" name="enderecoLogradouro" id="enderecoLogradouro"
+                                    class="form-control" readonly />
+                            </div>
+                            <div class="col-md-2 form-group alertaCampo enderecoNumero">
+                                <label class="control-label" for="enderecoNumero">Número</label>
+                                <input type="number" name="enderecoNumero" id="enderecoNumero" class="form-control"
+                                    readonly />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 form-group">
+                                <label class="control-label" for="enderecoComplemento">Complemento</label>
+                                <input type="text" name="enderecoComplemento" id="enderecoComplemento"
+                                    class="form-control" readonly />
+                            </div>
+                            <div class="col-md-3 form-group alertaCampo enderecoEstado">
+                                <label class="control-label" for="enderecoEstado">Estado</label>
+                                <input type="text" name="enderecoEstado" id="enderecoEstado" class="form-control"
+                                    readonly />
+                            </div>
+                            <div class="col-md-3 form-group alertaCampo enderecoCidade">
+                                <label class="control-label" for="enderecoCidade">Cidade</label>
+                                <input type="text" name="enderecoCidade" id="enderecoCidade" class="form-control"
+                                    readonly />
+                            </div>
+                            <div class="col-md-3 form-group alertaCampo enderecoBairro">
+                                <label class="control-label" for="enderecoBairro">Bairro</label>
+                                <input type="text" name="enderecoBairro" id="enderecoBairro" class="form-control"
+                                    readonly />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="alterarEndereco" id="alterarEndereco"
+                                            onchange="alteraBeneficios(this)" value="S" />
+                                        Alterar endereço residencial
+                                    </label>
+                                    <input type="hidden" name="alteraEndereco" id="alteraEndereco">
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Linhas</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12 table-responsive">
+                                        <table tablename="tblLinhasValeTransporte" id="tblLinhasValeTransporte"
+                                            class="table table-striped tabela-500" nodeletebutton="true"
+                                            noaddbutton="true">
+                                            <thead>
+                                                <tr>
+                                                    <th>Linha</th>
+                                                    <th>Quantidade</th>
+                                                    <th>Valor Tarifa (Unitária)</th>
+                                                    <th>Observação</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tableBodyRow">
+                                                <tr class="linhaNova">
+                                                    <td style="width: 50%" class="alertaCampo">
+                                                        <input type="zoom" id="descricaoLinhaTransporte"
+                                                            name="descricaoLinhaTransporte" data-zoom="{
+                                                                'displayKey':'PVALETR_NOMELINHA',
+                                                                'datasetId':'ds_consulta_VT_rm',
+                                                                'maximumSelectionLength':'1',
+                                                                'placeholder':'Selecione a linha de transporte',
+                                                                'fields':[
+                                                                    {
+                                                                       'field':'PVALETR_NOMELINHA',
+                                                                       'label':'Linha'
+                                                                    },
+                                                                    {
+                                                                        'field':'PTARIFA_DESCRICAO',
+                                                                        'label':'Tarifa'
+                                                                     }
+                                                                ]
+                                                             }" />
+                                                        <input type="hidden" name="codLinha" id="codLinha">
+                                                        <input type="hidden" name="nomeLinha" id="nomeLinha">
+                                                        <input type="hidden" name="dtInicio" id="dtInicio">
+                                                    </td>
+                                                    <td style="width: 10%" class="alertaCampo"><input type="number"
+                                                            name="quantidadeTransporte" id="quantidadeTransporte"
+                                                            class="form-control" /></td>
+                                                    <td style="width: 10%"><input type="text"
+                                                            name="precoUnitarioTransporte" id="precoUnitarioTransporte"
+                                                            class="form-control" readonly />
+                                                    </td>
+                                                    <td style="width: 20%"><input type="text"
+                                                            name="observacaoTransporte" id="observacaoTransporte"
+                                                            class="form-control" /></td>
+                                                    <td>
+                                                        <select name="desativar" id="desativar" class="form-control"
+                                                            style="display: none;">
+                                                            <option value="ativo">ativo</option>
+                                                            <option value="desativar">desativar</option>
+                                                        </select>
+                                                        <button onClick="removeLinha(this)"
+                                                            class="fluigicon fluigicon-trash fluigicon-md btn hiddenButton"
+                                                            style="position: initial; background: white;"></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4 VTnovo">
+                                        <h5 class="fs-cursor-pointer btn" id="adicionarLinha" onclick="addLinha()">
+                                            <i class="flaticon flaticon-normal flaticon-add-plus icon-md"
+                                                aria-hidden="true"></i>
+                                            Adicionar linha
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 form-group">
+                                        <div class="checkbox VTatual" style="display: none;">
+                                            <label>
+                                                <input type="checkbox" name="alteraVTAtual" id="alteraVTAtual" value="S"
+                                                    onchange="alteraBeneficios(this)" />
+                                                alterar linhas
+                                            </label>
+                                            <input type="hidden" name="alteraVT" id="alteraVT">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <div class="checkbox  VTatual" style="display: none;">
+                                            <label>
+                                                <input type="checkbox" name="excluiVTatual" id="excluiVTatual" value="S"
+                                                    onchange="alteraBeneficios(this)" />
+                                                excluir o benefício
+                                            </label>
+                                            <input type="hidden" name="excluiVT" id="excluiVT">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row VTnovo">
+                            <div class="col-md-12">
+                                <div class="col-md-12 form-group text-center">
+                                    <button id="btnAnexos" class="btn btn-info" onclick="showCamera('residencia')"><i
+                                            class="flaticon flaticon-add-plus" aria-hidden="true"></i> Anexar
+                                        comprovante residencial</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="row VTnovo">
+                            <div class="col-md-12">
+                                <span>
+                                    <strong>
+                                        O preenchimento completo do quadro e o comprovante de residência são
+                                        obrigatórios e
+                                        imprescindíveis para o atendimento de sua solicitação. Verifique se seu endereço
+                                        está igual ao comprovante de
+                                        residência anexado.
+                                    </strong>
+                                </span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row VTnovo">
+                            <div class="col-md-12">
+                                <h1>Declaração</h1>
+                                <br />
+                                <span>
+                                    Declaro que as informações prestadas são verídicas e serão submetidas à aprovação do
+                                    RH.
+                                </span>
+                                <br />
+                                <span>
+                                    Estou ciente de que sempre que houver a possibilidade de utilização da integração
+                                    das tarifas, modalidade de Bilhete Único, a empresa fará a opção por essa modalidade
+                                    de fornecimento de vale-transporte.
+
+                                </span>
+                                <br />
+                                <span>
+                                    Optando pela utilização do vale-transporte, autorizo a empresa descontar até 6%
+                                    (seis
+                                    por cento) do meu salário nominal mensal para o custeio desse benefício conforme
+                                    artigo
+                                    9º do Decreto nº 95.247/87.
+                                </span>
+                                <br />
+                                <span>
+                                    Comprometo-me em comunicar à área de Recursos Humanos, qualquer alteração de
+                                    endereço, serviços ou meios de transporte que impliquem na alteração dos dados
+                                    acima.
+                                </span>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row VTnovo cienciaValeTransporte alertaCampo">
+                            <div class="col-md-12 form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="cienciaValeTransporte" id="cienciaValeTransporte"
+                                            value="CIENTE" />
+                                        Li, concordo com a declaração, sou responsável pelas informações concedidas à
+                                        empresa e
+                                        estou ciente de que a alteração de endereço residencial da região metropolitana
+                                        poderá
+                                        acarretar mudança na
+                                        operadora de transporte.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAINEL DE VALE-REFEIÇÃO/ALIMENTAÇÃO -->
+                <div class="panel panel-default" id="painelValeRefeicaoAlimentacao">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Vale-refeição/alimentação</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row valeRefeicaoAtual">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label">Benefício atual</label>
+                                <input type="text" name="valeRefeicaoAtual" id="valeRefeicaoAtual" class="form-control"
+                                    readonly />
+                                <input type="hidden" name="codValeRefeicaoAtual" id="codValeRefeicaoAtual">
+                                <input type="hidden" name="dataValeRefeicaoAtual" id="dataValeRefeicaoAtual">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <div class="checkbox valeRefeicaoAtual">
+                                    <label>
+                                        <input type="checkbox" name="alteraValeRefeicaoAtual"
+                                            id="alteraValeRefeicaoAtual" value="S" onchange="alteraBeneficios(this)" />
+                                        alterar o benefício
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row valeRefeicaoNovo alertaCampo">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label" for="valeRefeicaoNovo">Benefício novo</label>
+                                <input type="zoom" id="valeRefeicaoNovo" name="valeRefeicaoNovo" data-zoom="{
+                                         'displayKey':'NOME',
+                                         'datasetId':'ds_consulta_beneficios_rm',
+                                         'maximumSelectionLength':'1',
+                                         'placeholder':'Selecione o novo benefício',
+                                         'filterValues':'tipoBeneficio,valeRefeicao',
+                                         'fields':[
+                                             {
+                                                'field':'NOME',
+                                                'label':'Benefício',
+                                                'standard':'true'
+                                             }
+                                         ]
+                                      }" />
+                                <input type="hidden" name="codValeRefeicaoNovo" id="codValeRefeicaoNovo">
+                                <input type="hidden" name="nomeValeRefeicaoNovo" id="nomeValeRefeicaoNovo">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span>
+                                O cartão será enviado para o endereço residencial cadastrado. Por favor verificar se o
+                                seu endereço está correto ou necessita de algum ajuste para evitar o atraso na entrega
+                                da transportadora
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAINEL DE PLANO ODONTOLÓGICO -->
+                <div class="panel panel-default" id="painelPlanoOdontologico">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Plano odontológico</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row planoOdontologicoAtual">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label">Benefício atual</label>
+                                <input type="text" name="planoOdontologicoAtual" id="planoOdontologicoAtual"
+                                    class="form-control" readonly />
+                                <input type="hidden" name="codPlanoOdontologicoAtual" id="codPlanoOdontologicoAtual">
+                                <input type="hidden" name="dataPlanoOdontologicoAtual" id="dataPlanoOdontologicoAtual">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group alteraPlanoOdontologicoAtual">
+                                <div class="checkbox planoOdontologicoAtual">
+                                    <label>
+                                        <input type="checkbox" name="alteraPlanoOdontologicoAtual"
+                                            id="alteraPlanoOdontologicoAtual" value="S"
+                                            onchange="alteraBeneficios(this)" />
+                                        alterar o benefício
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row planoOdontologicoNovo alertaCampo">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label" for="planoOdontologicoNovo">Benefício novo</label>
+                                <input type="zoom" id="planoOdontologicoNovo" name="planoOdontologicoNovo" data-zoom="{
+                                        'displayKey':'NOME',
+                                        'datasetId':'ds_consulta_beneficios_rm',
+                                        'maximumSelectionLength':'1',
+                                        'placeholder':'Selecione o novo benefício',
+                                        'filterValues':'tipoBeneficio,planoOdontologico',
+                                        'fields':[
+                                            {
+                                               'field':'NOME',
+                                               'label':'Benefício',
+                                               'standard':'true'
+                                            }
+                                        ]
+                                     }" />
+                                <input type="hidden" name="codPlanoOdontologicoNovo" id="codPlanoOdontologicoNovo">
+                                <input type="hidden" name="nomePlanoOdontologicoNovo" id="nomePlanoOdontologicoNovo">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span>
+                                Não é possível solicitar alterações (upgrade e downgrade) no plano odontológico no
+                                momento. A data da próxima janela de alterações será comunicada, assim que definida.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAINEL DE PREVIDÊNCIA PRIVADA -->
+                <div class="panel panel-default" id="painelPrevidenciaPrivada">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Previdência privada</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 form-group previdenciaPrivadaAtual">
+                                <label class="control-label">Percentual atual</label>
+                                <input type="text" name="previdenciaPrivadaAtual" id="previdenciaPrivadaAtual"
+                                    class="form-control" readonly />
+                                <input type="hidden" name="codPrevidenciaPrivadaAtual" id="codPrevidenciaPrivadaAtual">
+                                <input type="hidden" name="dataPrevidenciaPrivadaAtual"
+                                    id="dataPrevidenciaPrivadaAtual">
+                            </div>
+                        </div>
+                        <div class="row previdenciaPrivadaAtual">
+                            <div class="col-md-2 form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="alteraPrevidenciaPrivadaAtual"
+                                            id="alteraPrevidenciaPrivadaAtual" value="S"
+                                            onchange="alteraBeneficios(this)" />
+                                        alterar o Perncentual
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="excluiPrevidenciaPrivadaAtual"
+                                            id="excluiPrevidenciaPrivadaAtual" value="S"
+                                            onchange="alteraBeneficios(this)" />
+                                        suspender o benefício
+                                    </label>
+                                    <input type="hidden" name="excluiPrevidencia" id="excluiPrevidencia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row previdenciaPrivadaNovo">
+                            <div class="col-md-12 form-group">
+                                <label class="control-label" for="previdenciaPrivadaNovo">Percentual novo</label>
+                                <input type="zoom" id="previdenciaPrivadaNovo" name="previdenciaPrivadaNovo" data-zoom="{
+                                        'displayKey':'NOME',
+                                        'datasetId':'ds_consulta_beneficios_rm',
+                                        'maximumSelectionLength':'1',
+                                        'placeholder':'Selecione o novo benefício',
+                                        'filterValues':'tipoBeneficio,previdenciaPrivada',
+                                        'fields':[
+                                            {
+                                               'field':'NOME',
+                                               'label':'Benefício',
+                                               'standard':'true'
+                                            }
+                                        ]
+                                     }" />
+                                <input type="hidden" name="codPrevidenciaPrivadaNovo" id="codPrevidenciaPrivadaNovo">
+                                <input type="hidden" name="nomePrevidenciaPrivadaNovo" id="nomePrevidenciaPrivadaNovo">
+                            </div>
+                        </div>
+                        <div class="row avisoPrevidenciaPrivada">
+                            <div class="col-md-12">
+                                <span>
+                                    Para fazer a adesão à previdência privada BTG é necessário abrir uma conta de
+                                    investimento. Para esse processo basta fazer o download do app BTG Pactual
+                                    Investimentos e seguir o passo a passo do app. Após a finalização da abertura da
+                                    conta, ficará disponível, no aplicativo, a opção de contratação da previdência
+                                    privada corporativa. <br>
+                                    Para alteração de percentual de contribuição ou suspensão das contribuições, seguir
+                                    com o preenchimento do formulário.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row previdenciaPrivadaNovo">
+                            <div class="col-md-12">
+                                <h3>DECLARAÇÃO:</h3>
+                                <br />
+                                <span>
+                                    Declaro que as informações prestadas são verídicas e serão submetidas à aprovação do
+                                    RH.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row previdenciaPrivadaNovo">
+                            <div class="col-md-12">
+                                <span>Optando pela contribuição à previdência privada, autorizo a empresa descontar do
+                                    meu
+                                    salário nominal mensal o percentual definido acima para o custeio desse
+                                    benefício.</span>
+                            </div>
+                        </div>
+                        <div class="row previdenciaPrivadaNovo cienciaPrevidenciaPrivada alertaCampo">
+                            <div class="col-md-12 form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="cienciaPrevidenciaPrivada"
+                                            id="cienciaPrevidenciaPrivada" value="CIENTE" />
+                                        Li e concordo com a declaração.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAINEL DE SEGURO DE VIDA -->
+                <div class="panel panel-default" id="painelSeguroVida">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Seguro de vida</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row col-md-12 form-group">
+                            <div class="checkbox seguroVidaAtual">
+                                <label>
+                                    <input type="checkbox" name="alterarFormMetLife" id="alterarFormMetLife"
+                                        onchange="alteraBeneficios(this)" />
+                                    Deseja atualizar apenas o formulário do seguro de vida?
+                                </label>
+                            </div>
+                        </div>
+                        <div class="alteracaoSeguroVida" id="alteracaoSeguroVidaID" style="display: block;">
+                            <div id="apenasAtualizarFormMetLife" style="display: block;">
+                                <div class="row">
+                                    <div class="col-md-12 form-group seguroVidaAtual">
+                                        <label class="control-label">Benefício atual</label>
+                                        <input type="text" name="seguroVidaAtual" id="seguroVidaAtual"
+                                            class="form-control" readonly />
+                                        <input type="hidden" name="codSeguroVidaAtual" id="codSeguroVidaAtual">
+                                        <input type="hidden" name="dataSeguroVidaAtual" id="dataSeguroVidaAtual">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 form-group">
+                                        <div class="checkbox seguroVidaAtual">
+                                            <label>
+                                                <input type="checkbox" name="alteraSeguroVidaAtual"
+                                                    id="alteraSeguroVidaAtual" value="S"
+                                                    onchange="alteraBeneficios(this)" />
+                                                Alterar o benefício
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <div class="checkbox  seguroVidaAtual">
+                                            <label>
+                                                <input type="checkbox" name="excluiSeguroVidaAtual"
+                                                    id="excluiSeguroVidaAtual" value="S"
+                                                    onchange="alteraBeneficios(this)" />
+                                                Excluir o benefício
+                                            </label>
+                                            <input type="hidden" name="excluiSeguroVida" id="excluiSeguroVida">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="seguroVidaNovo alertaCampo">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <label class="control-label" for="seguroVidaNovo">Benefício novo</label>
+                                            <input type="zoom" id="seguroVidaNovo" name="seguroVidaNovo" data-zoom="{
+                                            'displayKey':'NOME',
+                                            'datasetId':'ds_consulta_beneficios_rm',
+                                            'maximumSelectionLength':'1',
+                                            'placeholder':'Selecione o novo benefício',
+                                            'filterValues':'tipoBeneficio,seguroVida',
+                                            'fields':[
+                                            {
+                                                'field':'NOME',
+                                                'label':'Benefício',
+                                                'standard':'true'
+                                            }
+                                            ]
+                                        }" />
+                                            <input type="hidden" name="codSeguroVidaNovo" id="codSeguroVidaNovo">
+                                            <input type="hidden" name="nomeSeguroVidaNovo" id="nomeSeguroVidaNovo">
+                                            <input type="hidden" name="taxaSeguroVidaNovo" id="taxaSeguroVidaNovo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="seguroVidaNovo">
+                                <div class="row">
+                                    <div class="col-md-4 text-center form-group btn">
+                                        <button id="btnDownloadFormularioMetLife" onclick="downloadMetLife()"
+                                            class="btn btn-primary">Download modelo
+                                            formulário
+                                            MetLife</button>
+                                    </div>
+                                    <div class="col-md-4 text-center form-group btn">
+                                        <button id="btnAnexarFormularioMetLife" onclick="showCamera('metLife')"
+                                            class="btn btn-success">Anexar formulário
+                                            MetLife
+                                            preenchido</button>
+                                    </div>
+                                    <div id="btnSimulaCusto" class="col-md-4 text-center form-group btn">
+                                        <button id="btnSimularCustoBeneficio" onclick="simularCusto()"
+                                            class="btn btn-info">Simular custo do
+                                            benefício</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-md-12 form-group pull-left">
+                                <span>
+                                    É permitido a alteração (solicitação ou exclusão) dos seguros complementares I e II.
+                                    <br>
+                                    O Seguro de Vida básico obrigatório e custeado pela empresa não pode ser cancelado.
+                                    <br>
+                                    Atenção: Para atualização dos beneficiários designados você deve fazer o download do
+                                    formulário, preencher o documento e enviar a solicitação. <br>
+                                    Para todas as alterações realizadas (solicitação ou exclusão) é necessário o
+                                    preenchimento do formulário e envio junto à solicitação.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAINEL DE APROVAÇÃO -->
+            <div class="panel panel-default" id="painelAprovacao" style="display: none;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Aprovação</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label class="control-label">ID do aprovador</label>
+                            <input type="text" name="idAprovador" id="idAprovador" class="form-control" readonly />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="control-label">Nome do aprovador</label>
+                            <input type="text" name="nomeAprovador" id="nomeAprovador" class="form-control" readonly />
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label class="control-label">Data/hora da aprovação</label>
+                            <input type="text" name="dataAprovacao" id="dataAprovacao" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group div_radioAprovacao alertaCampo">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radioAprovacao" id="radioAprovado" value="Aprovado">
+                                    Prosseguir com a solicitação
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radioAprovacao" id="radioReprovado" value="Reprovado">
+                                    Reprovar toda a solicitação
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radioAprovacao" id="radioAjustar" value="Ajustar">
+                                    Solicitar ajuste das informações
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group observacoesAprovacao alertaCampo">
+                            <label class="control-label" for="observacoesAprovacao">Observações</label>
+                            <textarea name="observacoesAprovacao" id="observacoesAprovacao" class="form-control"
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
