@@ -20,7 +20,7 @@ function displayFields(form, customHTML) {
 		idExterno = "fb42dc0ff40d4565b916b358d8ebeeb0" //AMBIENTE QA
 	}
 	if (idExterno == 'gabriela.vieira') {
-		idExterno = "774fabb1af7e43babcf4de942acdd36f" //AMBIENTE PROD
+		idExterno = "628985d9a0e44ce9986f54ebf726cde4" //AMBIENTE PROD
 	}
 
 	if (activity == 0 || activity == 3) { // Se for Inicio
