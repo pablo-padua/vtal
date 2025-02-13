@@ -1,0 +1,1096 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>wf_manutencao_beneficios</processId>
+    </processDefinitionPK>
+    <processDescription>Solicitação e manutenção de benefícios</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Benefícios</categoryId>
+    <managerEngineAllocationId>Grupo</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;GestaoProcessos&lt;/Group&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Solicitação e manutenção de benefícios</processId>
+      <version>6</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>16</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>215</positionX>
+      <positionY>75</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </processStatePK>
+      <stateName>Analisar documentação</stateName>
+      <stateDescription>Analisar documentação</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;RecursosHumanos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>179</positionX>
+      <positionY>211</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>15</sequence>
+      </processStatePK>
+      <stateName>Ajustar</stateName>
+      <stateDescription>Ajustar</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>57600</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>380</positionX>
+      <positionY>60</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>21</sequence>
+      </processStatePK>
+      <stateName>Integração RM</stateName>
+      <stateDescription>Integração RM</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>380</positionX>
+      <positionY>387</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>82</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>1</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>23</sequence>
+      </processStatePK>
+      <stateName>Tratativa</stateName>
+      <stateDescription>Tratativa</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;SOLICITACOES-COM-ERRO&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>180</positionX>
+      <positionY>396</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>22</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>380</positionX>
+      <positionY>445</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>43</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>21</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>11</sequence>
+      </processStatePK>
+      <stateName>Validar documentação</stateName>
+      <stateDescription>Validar documentação</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>402</positionX>
+      <positionY>205</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>19</sequence>
+      </processStatePK>
+      <stateName>Cancelado</stateName>
+      <stateDescription>Cancelado</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>630</positionX>
+      <positionY>246</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>65</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>26</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>630</positionX>
+      <positionY>412</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>6</version>
+        <sequence>11</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Aprovado&quot;</condition>
+      <destinationSequenceId>21</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>6</version>
+        <sequence>11</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Reprovado&quot;</condition>
+      <destinationSequenceId>19</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>6</version>
+        <sequence>11</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Ajustar&quot;</condition>
+      <destinationSequenceId>15</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>10</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>12</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>5</initialStateSequence>
+      <finalStateSequence>11</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>14</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>16</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>15</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>18</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>19</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>20</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>15</initialStateSequence>
+      <finalStateSequence>5</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>24</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>22</initialStateSequence>
+      <finalStateSequence>23</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>25</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>23</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>27</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>26</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <linkSequence>28</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>15</initialStateSequence>
+      <finalStateSequence>19</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>true</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>servicetask21</eventId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function servicetask21() {&#xd;
+&#xd;
+    try {&#xd;
+&#xd;
+        var status = false;&#xd;
+        var xml;&#xd;
+        var result;&#xd;
+        var CODBENEFICIO;&#xd;
+        var BENEFICIO;&#xd;
+        var codBeneficioAntigo;&#xd;
+        var dataBeneficioAntigo;&#xd;
+        var tabela = hAPI.getChildrenIndexes(&quot;tblLinhasValeTransporte&quot;).length;&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;alteraEndereco&quot;) == &quot;true&quot;) {&#xd;
+            var newElement = &quot;&lt;FopFunc&gt;&lt;PFunc&gt;&quot;;&#xd;
+            newElement += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+            newElement += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+            newElement += setNode(&quot;RUA&quot;, hAPI.getCardValue(&quot;enderecoLogradouro&quot;));&#xd;
+            newElement += setNode(&quot;NUMERO&quot;, hAPI.getCardValue(&quot;enderecoNumero&quot;));&#xd;
+            newElement += setNode(&quot;BAIRRO&quot;, hAPI.getCardValue(&quot;enderecoBairro&quot;));&#xd;
+            newElement += setNode(&quot;CIDADE&quot;, hAPI.getCardValue(&quot;enderecoCidade&quot;));&#xd;
+            newElement += setNode(&quot;ESTADO&quot;, hAPI.getCardValue(&quot;enderecoEstado&quot;));&#xd;
+            newElement += setNode(&quot;CEP&quot;, hAPI.getCardValue(&quot;enderecoCep&quot;));&#xd;
+            newElement += setNode(&quot;COMPLEMENTO&quot;, hAPI.getCardValue(&quot;enderecoComplemento&quot;));&#xd;
+            newElement += &quot;&lt;/PFunc&gt;&lt;/FopFunc&gt;&quot;;&#xd;
+&#xd;
+            result = saveRecord(newElement, &quot;FopFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;excluiVT&quot;) == &quot;true&quot;) {&#xd;
+            var xmlExcluir = &quot;&lt;FopHstValeTr&gt;&quot;;&#xd;
+            for (var i = 1; i &lt;= tabela; i++) {&#xd;
+                xmlExcluir += &quot;&lt;PFValeTr&gt;&quot;&#xd;
+                xmlExcluir += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+                xmlExcluir += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+                xmlExcluir += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));&#xd;
+                xmlExcluir += setNode(&quot;DTINICIO&quot;, hAPI.getCardValue(&quot;dtInicio___&quot; + i));&#xd;
+                xmlExcluir += &quot;&lt;/PFValeTr&gt;&quot;&#xd;
+            }&#xd;
+            xmlExcluir += &quot;&lt;/FopHstValeTr&gt;&quot;;&#xd;
+            result = deleteRecord(xmlExcluir, &quot;FopHstValeTrData&quot;);&#xd;
+            String(result).replace(/[\r\n]+/g, &apos;&apos;) == &quot;Exclusão de registro(s) realizado com sucesso&quot; ? status = true : (function () { throw result })();&#xd;
+&#xd;
+        }&#xd;
+        else if (tabela &gt; 0) {&#xd;
+            var newElement = &quot;&lt;FopHstValeTr&gt;&quot;;&#xd;
+            var xmlExcluir = &quot;&lt;FopHstValeTr&gt;&quot;;&#xd;
+            var ativar = false;&#xd;
+            var excluir = false;&#xd;
+&#xd;
+            for (var i = 1; i &lt;= tabela; i++) {&#xd;
+                var status = hAPI.getCardValue(&quot;desativar___&quot; + i)&#xd;
+                var DTINICIO = hAPI.getCardValue(&quot;dtInicio___&quot; + i) != &quot;&quot; ? hAPI.getCardValue(&quot;dtInicio___&quot; + i) : hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10);&#xd;
+&#xd;
+                if (status == &quot;ativo&quot;) {&#xd;
+                    ativar = true;&#xd;
+                    newElement += &quot;&lt;PFValeTr&gt;&quot;&#xd;
+                    newElement += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+                    newElement += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+                    newElement += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));&#xd;
+                    newElement += setNode(&quot;DTINICIO&quot;, DTINICIO);&#xd;
+                    newElement += setNode(&quot;NROVIAGENS&quot;, hAPI.getCardValue(&quot;quantidadeTransporte___&quot; + i));&#xd;
+                    newElement += &quot;&lt;/PFValeTr&gt;&quot;&#xd;
+                } else {&#xd;
+                    excluir = true;&#xd;
+                    xmlExcluir += &quot;&lt;PFValeTr&gt;&quot;&#xd;
+                    xmlExcluir += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+                    xmlExcluir += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+                    xmlExcluir += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));&#xd;
+                    xmlExcluir += setNode(&quot;DTINICIO&quot;, DTINICIO);&#xd;
+                    xmlExcluir += &quot;&lt;/PFValeTr&gt;&quot;&#xd;
+                }&#xd;
+            }&#xd;
+&#xd;
+            if (excluir) {&#xd;
+                xmlExcluir += &quot;&lt;/FopHstValeTr&gt;&quot;;&#xd;
+                result = deleteRecord(xmlExcluir, &quot;FopHstValeTrData&quot;);&#xd;
+                String(result).replace(/[\r\n]+/g, &apos;&apos;) == &quot;Exclusão de registro(s) realizado com sucesso&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+            if (ativar) {&#xd;
+                newElement += &quot;&lt;/FopHstValeTr&gt;&quot;;&#xd;
+                result = saveRecord(newElement, &quot;FopHstValeTrData&quot;);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+        }&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;codValeRefeicaoNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codValeRefeicaoAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codValeRefeicaoAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataValeRefeicaoAtual&quot;);&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codValeRefeicaoNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomeValeRefeicaoNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;codPlanoOdontologicoNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codPlanoOdontologicoAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codPlanoOdontologicoAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPlanoOdontologicoAtual&quot;)&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codPlanoOdontologicoNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomePlanoOdontologicoNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;codPrevidenciaPrivadaNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPrevidenciaPrivadaAtual&quot;)&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codPrevidenciaPrivadaNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomePrevidenciaPrivadaNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;codSeguroVidaNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataSeguroVidaAtual&quot;)&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codSeguroVidaNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomeSeguroVidaNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;excluiPrevidencia&quot;) == &quot;true&quot;) {&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;)&#xd;
+            dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPrevidenciaPrivadaAtual&quot;)&#xd;
+            result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;excluiSeguroVida&quot;) == &quot;true&quot;) {&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;)&#xd;
+            dataBeneficioAntigo = hAPI.getCardValue(&quot;dataSeguroVidaAtual&quot;)&#xd;
+            result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+&#xd;
+        return status;&#xd;
+&#xd;
+    } catch (error) {&#xd;
+        log.info(&quot;Erro ao integrar com o RM: &quot; + error);&#xd;
+        throw error;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function createXmlBeneficios(codigo, nome) {&#xd;
+&#xd;
+    var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);&#xd;
+    var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
+    var DTINIVIGENCIA = formataData(hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10));&#xd;
+&#xd;
+    var newElement = &quot;&lt;VBENEFFUNC&gt;&quot;;&#xd;
+&#xd;
+    newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);&#xd;
+    newElement += setNode(&quot;CHAPA&quot;, CHAPA);&#xd;
+    newElement += setNode(&quot;CODBENEFICIO&quot;, codigo);&#xd;
+    newElement += setNode(&quot;DTINIVIGENCIA&quot;, DTINIVIGENCIA);&#xd;
+    newElement += setNode(&quot;AUTOVINC&quot;, &quot;0&quot;);&#xd;
+    newElement += setNode(&quot;BENEFICIO&quot;, nome);&#xd;
+&#xd;
+    newElement += &quot;&lt;/VBENEFFUNC&gt;&quot;;&#xd;
+&#xd;
+    return newElement;&#xd;
+}&#xd;
+&#xd;
+function setNode(node, valor) {&#xd;
+    var line = createNode(node) + valor + createNode(&quot;/&quot; + node);&#xd;
+    return line;&#xd;
+}&#xd;
+&#xd;
+function createNode(node) {&#xd;
+    return &quot;&lt;&quot; + node + &quot;&gt;&quot;;&#xd;
+}&#xd;
+&#xd;
+function saveRecord(xml, dataServer) {&#xd;
+    log.info(&quot; @@@@@ XML&quot; + xml);&#xd;
+    var contraint = [];&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, dataServer, dataServer, ConstraintType.MUST));&#xd;
+    var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);&#xd;
+&#xd;
+    if (saveRecord != null &amp;&amp; saveRecord.values.length &gt; 0) {&#xd;
+        var succes = saveRecord.getValue(0, &quot;success&quot;);&#xd;
+        if (succes == &quot;true&quot;) {&#xd;
+            log.info(&quot;Sucesso ao integrar com o RM.&quot;);&#xd;
+            return succes;&#xd;
+        } else {&#xd;
+            return saveRecord.getValue(0, &quot;result&quot;);&#xd;
+        }&#xd;
+&#xd;
+    } else {&#xd;
+        throw &quot;Erro no dataset saveRecord_rm&quot;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function deleteRecord(xml, dataServer) {&#xd;
+    log.info(&quot; @@@@@ XML&quot; + xml);&#xd;
+    var contraint = [];&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, dataServer, dataServer, ConstraintType.MUST));&#xd;
+    var deleteRecord = DatasetFactory.getDataset(&quot;deleteRecord_RM&quot;, null, contraint, null);&#xd;
+&#xd;
+    if (deleteRecord != null &amp;&amp; deleteRecord.values.length &gt; 0) {&#xd;
+        return deleteRecord.getValue(0, &quot;result&quot;)&#xd;
+&#xd;
+    } else {&#xd;
+        throw &quot;Erro no dataset deleteRecord_RM&quot;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+function desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo) {&#xd;
+&#xd;
+    var chapa = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
+    var dataDesvinculacao = formataData(hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10));&#xd;
+&#xd;
+    var contraint = [];&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;chapa&quot;, chapa, chapa, ConstraintType.MUST))&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;codBeneficio&quot;, codBeneficioAntigo, codBeneficioAntigo, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataInicio&quot;, dataBeneficioAntigo, dataBeneficioAntigo, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataDesvinculacao&quot;, dataDesvinculacao, dataDesvinculacao, ConstraintType.MUST));&#xd;
+    var process = DatasetFactory.getDataset(&quot;ds_desvincular_beneficios_rm&quot;, null, contraint, null);&#xd;
+&#xd;
+    if (process != null &amp;&amp; process.values.length &gt; 0) {&#xd;
+&#xd;
+        var succes = process.getValue(0, &quot;success&quot;);&#xd;
+        if (succes == &quot;true&quot;) {&#xd;
+            log.info(&quot;Sucesso ao integrar com o RM.&quot; + process);&#xd;
+            return succes;&#xd;
+        } else {&#xd;
+            return process.getValue(0, &quot;result&quot;);&#xd;
+        }&#xd;
+&#xd;
+    } else {&#xd;
+        throw &quot;Erro no dataset ds_desvincular_beneficios_rm&quot;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function formataData(data) {&#xd;
+    var partes = data.split(&quot;/&quot;);&#xd;
+    return partes[2] + &quot;-&quot; + partes[1] + &quot;-&quot; + partes[0];&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>501</height>
+      <width>841</width>
+      <positionX>10</positionX>
+      <positionY>10</positionY>
+      <stateName>Solicitação e manutenção de benefícios</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>B7FFDB</color>
+      <height>167</height>
+      <width>811</width>
+      <positionX>40</positionX>
+      <positionY>10</positionY>
+      <stateName>Recursos humanos</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>C0C0C0</color>
+      <height>167</height>
+      <width>811</width>
+      <positionX>40</positionX>
+      <positionY>344</positionY>
+      <stateName>Integração</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>167</height>
+      <width>811</width>
+      <positionX>40</positionX>
+      <positionY>177</positionY>
+      <stateName>Solicitante</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>6</version>
+        <linkSequence>20</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>432</positionX>
+      <positionY>26</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>6</version>
+        <linkSequence>20</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>117</positionX>
+      <positionY>26</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>6</version>
+        <linkSequence>20</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>117</positionX>
+      <positionY>262</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>wf_manutencao_beneficios</processId>
+        <version>6</version>
+        <linkSequence>28</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>647</positionX>
+      <positionY>93</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list>
+    <ProcessStateService>
+      <companyId>1</companyId>
+      <processId>wf_manutencao_beneficios</processId>
+      <version>1</version>
+      <sequence>21</sequence>
+      <attempts>0</attempts>
+      <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
+      <serviceName></serviceName>
+      <frequency>1</frequency>
+      <frequencyType>0</frequencyType>
+    </ProcessStateService>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>

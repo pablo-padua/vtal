@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Inclusão de dependente</processId>
-      <version>11</version>
+      <version>13</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>17</formId>
@@ -74,18 +74,18 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>175</positionX>
-      <positionY>70</positionY>
+      <positionX>180</positionX>
+      <positionY>71</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
+      <periodId>Default</periodId>
       <stateType>0</stateType>
       <bpmnType>10</bpmnType>
       <signalId>0</signalId>
@@ -125,13 +125,13 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>510</positionX>
-      <positionY>205</positionY>
+      <positionY>227</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
@@ -177,13 +177,13 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>720</positionX>
       <positionY>58</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
@@ -230,7 +230,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>720</positionX>
-      <positionY>380</positionY>
+      <positionY>408</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -265,8 +265,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Pool Papel</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;admin&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;SOLICITACOES-COM-ERRO&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -279,13 +279,13 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>530</positionX>
-      <positionY>388</positionY>
+      <positionY>408</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
@@ -331,13 +331,13 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>180</positionX>
-      <positionY>213</positionY>
+      <positionY>227</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
@@ -385,7 +385,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>720</positionX>
-      <positionY>450</positionY>
+      <positionY>478</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -417,8 +417,8 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>742</positionX>
-      <positionY>197</positionY>
+      <positionX>740</positionX>
+      <positionY>218</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -443,7 +443,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>310</positionX>
-      <positionY>26</positionY>
+      <positionY>31</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -468,7 +468,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>370</positionX>
-      <positionY>197</positionY>
+      <positionY>211</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -507,7 +507,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>950</positionX>
-      <positionY>234</positionY>
+      <positionY>244</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -551,10 +551,10 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>950</positionX>
-      <positionY>400</positionY>
+      <positionY>418</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -578,7 +578,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>1</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoRH&quot;) == &quot;aprovar&quot;</condition>
@@ -590,7 +590,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>2</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoRH&quot;) == &quot;reprovar&quot;</condition>
@@ -602,7 +602,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>3</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoRH&quot;) == &quot;ajustar&quot;</condition>
@@ -614,7 +614,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>1</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>25</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;true&quot; &amp;&amp; hAPI.getCardValue(&quot;isAlterarBnfPcd&quot;) == &quot;true&quot;</condition>
@@ -626,7 +626,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>2</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>25</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;true&quot; &amp;&amp; hAPI.getCardValue(&quot;isAlterarBnfPcd&quot;) == &quot;false&quot;</condition>
@@ -638,7 +638,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>3</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>25</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;false&quot;</condition>
@@ -650,7 +650,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>1</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>30</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoSaude&quot;) == &quot;aprovar&quot;</condition>
@@ -662,7 +662,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>2</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>30</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoSaude&quot;) == &quot;reprovar&quot;</condition>
@@ -674,7 +674,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>3</expressionOrder>
-        <version>11</version>
+        <version>13</version>
         <sequence>30</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoSaude&quot;) == &quot;ajustar&quot;</condition>
@@ -961,193 +961,183 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>beforeTaskSave</eventId>
-        <processId>wf_inclusao_dependente</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {
-    var atv      = getValue(&quot;WKNumState&quot;);
-    if (atv == 0 || atv == 4) {
-
-        var anexos   = hAPI.listAttachments();
-        var temAnexo = false;
-
-        if (anexos.size() &gt; 0) {
-            temAnexo = true;
-        }
-
-        if (!temAnexo) {
-            //throw &quot;É preciso anexar o documento para continuar a solicitação&quot;;
-        }
-
-    }
-}</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
         <eventId>servicetask17</eventId>
         <processId>wf_inclusao_dependente</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask17(attempt, message) {
-
-	try {
-
-		var xml = createXml();
-
-		log.info(&quot; @@@@@ XML&quot; + xml);
-		var contraint = [];
-		contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST))
-		contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, &quot;FopDependData&quot;, &quot;FopDependData&quot;, ConstraintType.MUST))
-		var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);
-
-		if (saveRecord != null &amp;&amp; saveRecord.values.length &gt; 0) {
-			var succes = saveRecord.getValue(0, &quot;success&quot;);
-			log.info(&quot;RETORNO saveRecord&quot;);
-			log.dir(saveRecord);
-			if (succes == &quot;true&quot;) {
-				log.info(&quot;Sucesso ao integrar com o RM.&quot;);
-				return true;
-			} else {
-				throw saveRecord.getValue(0, &quot;result&quot;);
-			}
-
-		} else {
-			throw &quot;Erro no dataset saveRecord_rm&quot;
-		}
-	} catch (error) {
-		log.info(&quot;Erro ao integrar com o RM: &quot; + error);
-		throw error;
-	}
-
-}
-
-function createXml() {
-
-	var tipo = hAPI.getCardValue(&quot;tipoSolicitacaoIncluirAlterar&quot;);
-	
-
-	var newElement = &quot;&lt;FopDepend&gt;&lt;PFDepend&gt;&quot;;
-
-	var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);
-	var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);
-	var NRODEPEND = tipo == &quot;incluir&quot; ? hAPI.getCardValue(&quot;dependenteUltimoID&quot;) : hAPI.getCardValue(&quot;idDependente&quot;);
-	var NOME = hAPI.getCardValue(&quot;dependenteNomeCompleto&quot;);
-	var DTNASCIMENTO = hAPI.getCardValue(&quot;dependenteDtNascimento&quot;);
-	var CPF = String(hAPI.getCardValue(&quot;cpfDependente&quot;)).replace(/[^0-9]/g, &apos;&apos;);
-	var SEXO = hAPI.getCardValue(&quot;dependenteSexo&quot;);
-	var GRAUPARENTESCO = hAPI.getCardValue(&quot;dependenteGrauParentesco&quot;);
-	var GRAUDEINSTRUCAO = hAPI.getCardValue(&quot;dependenteGrauInstrucao&quot;);
-	var RECEBEAUXPCD = hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;true&quot; ? &quot;T&quot; : &quot;F&quot;;
-	var UNIVERSITARIO = hAPI.getCardValue(&quot;dependenteUniversitario&quot;);
-	var LOCALNASCIMENTO = hAPI.getCardValue(&quot;dependenteMunicipioNascimento&quot;);
-	var ESTADOCIVIL = hAPI.getCardValue(&quot;dependenteEstadoCivil&quot;);
-	var NUMDECLARANASCVIVO = hAPI.getCardValue(&quot;numeroDeclaracao&quot;);
-	var NOMEMAE = hAPI.getCardValue(&quot;dependenteNomeMae&quot;);
-
-
-
-	var ASSMED = hAPI.getCardValue(&quot;temMedica&quot;);
-	var DTINCLUSAOASSMED = hAPI.getCardValue(&quot;DTINCLUSAOASSMED&quot;);
-	var DTEXCLUSAOASSMED = hAPI.getCardValue(&quot;DTEXCLUSAOASSMED&quot;);
-
-	if (ASSMED == &quot;0&quot; &amp;&amp; DTEXCLUSAOASSMED == &quot;&quot;) {
-		DTEXCLUSAOASSMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);
-		DTINCLUSAOASSMED = &quot;&quot;;
-	}
-	if (ASSMED == &quot;1&quot; &amp;&amp; DTINCLUSAOASSMED == &quot;&quot;) {
-		DTINCLUSAOASSMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);
-		DTEXCLUSAOASSMED = &quot;&quot;;
-	}
-
-	var ASSODO = hAPI.getCardValue(&quot;temOdonto&quot;);
-	var DTINCLUSAOASSODO = hAPI.getCardValue(&quot;DTINCLUSAOASSODO&quot;);
-	var DTEXCLUSAOASSODO = hAPI.getCardValue(&quot;DTEXCLUSAOASSODO&quot;);
-
-	if (ASSODO == &quot;0&quot; &amp;&amp; DTINCLUSAOASSODO != &quot;&quot;) {
-		DTEXCLUSAOASSODO = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);
-		DTINCLUSAOASSODO = &quot;&quot;;
-	}
-
-	if (ASSODO == &quot;1&quot; &amp;&amp; DTINCLUSAOASSODO == &quot;&quot;) {
-		DTINCLUSAOASSODO = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);
-		DTEXCLUSAOASSODO = &quot;&quot;;
-	}
-
-	var AUXMEDICAMENTO = hAPI.getCardValue(&quot;temMedicamento&quot;);
-	var DTINCLUSAOAUXMED = hAPI.getCardValue(&quot;DTINCLUSAOAUXMED&quot;);
-	var DTEXCLUSAOAUXMED = hAPI.getCardValue(&quot;DTEXCLUSAOAUXMED&quot;);
-
-	if (AUXMEDICAMENTO == &quot;F&quot; &amp;&amp; DTINCLUSAOAUXMED != &quot;&quot;) {
-		DTEXCLUSAOAUXMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);
-		DTINCLUSAOAUXMED = &quot;&quot;;
-	}
-
-	if (AUXMEDICAMENTO == &quot;T&quot; &amp;&amp; DTINCLUSAOAUXMED == &quot;&quot;) {
-		DTINCLUSAOAUXMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);
-		DTEXCLUSAOAUXMED = &quot;&quot;;
-	}
-
-	if (ASSMED == &quot;0&quot;) {
-		var INCASSISTMEDICA = &quot;0&quot;;
-	} else {
-		var INCASSISTMEDICA = &quot;1&quot;;
-	}
-	if (ASSODO == &quot;0&quot;) {
-		var INCASSISTODONTO = &quot;0&quot;;
-	} else {
-		var INCASSISTODONTO = &quot;1&quot;;
-	}
-
-
-	newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);
-	newElement += setNode(&quot;CHAPA&quot;, CHAPA);
-	newElement += setNode(&quot;NRODEPEND&quot;, NRODEPEND);
-	newElement += setNode(&quot;NOME&quot;, NOME);
-	newElement += setNode(&quot;DTNASCIMENTO&quot;, DTNASCIMENTO);
-	newElement += setNode(&quot;CPF&quot;, CPF);
-	newElement += setNode(&quot;SEXO&quot;, SEXO);
-	newElement += setNode(&quot;GRAUPARENTESCO&quot;, GRAUPARENTESCO);
-	newElement += setNode(&quot;UNIVERSITARIO&quot;, UNIVERSITARIO);
-	newElement += setNode(&quot;LOCALNASCIMENTO&quot;, LOCALNASCIMENTO);
-	newElement += setNode(&quot;ESTADOCIVIL&quot;, ESTADOCIVIL);
-	newElement += setNode(&quot;NUMDECLARANASCVIVO&quot;, NUMDECLARANASCVIVO);
-	newElement += setNode(&quot;INCASSISTMEDICA&quot;, INCASSISTMEDICA);
-	newElement += setNode(&quot;INCASSISTODONTO&quot;, INCASSISTODONTO);
-
-	newElement += &quot;&lt;/PFDepend&gt;&lt;PFDEPENDCOMPL&gt;&quot;
-	newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);
-	newElement += setNode(&quot;CHAPA&quot;, CHAPA);
-	newElement += setNode(&quot;NRODEPEND&quot;, NRODEPEND);
-	newElement += setNode(&quot;NOMEMAE&quot;, NOMEMAE);
-	newElement += setNode(&quot;AUXMEDICAMENTO&quot;, AUXMEDICAMENTO);
-	newElement += setNode(&quot;GRAUDEINSTRUCAO&quot;, GRAUDEINSTRUCAO);
-	newElement += setNode(&quot;RECEBEAUXPCD&quot;, RECEBEAUXPCD);
-	newElement += setNode(&quot;DTINCLUSAOASSMED&quot;, DTINCLUSAOASSMED);
-	newElement += setNode(&quot;DTEXCLUSAOASSMED&quot;, DTEXCLUSAOASSMED);
-	newElement += setNode(&quot;DTINCLUSAOASSODO&quot;, DTINCLUSAOASSODO);
-	newElement += setNode(&quot;DTEXCLUSAOASSODO&quot;, DTEXCLUSAOASSODO);
-	newElement += setNode(&quot;DTINCLUSAOAUXMED&quot;, DTINCLUSAOAUXMED);
-	newElement += setNode(&quot;DTEXCLUSAOAUXMED&quot;, DTEXCLUSAOAUXMED);
-	newElement += &quot;&lt;/PFDEPENDCOMPL&gt;&quot;
-
-
-	newElement += &quot;&lt;/FopDepend&gt;&quot;;
-
-	return newElement;
-}
-
-
-function setNode(node, valor) {
-	var line = createNode(node) + valor + createNode(&quot;/&quot; + node);
-	return line;
-}
-
-function createNode(node) {
-	return &quot;&lt;&quot; + node + &quot;&gt;&quot;;
-}
-
+      <eventDescription>function servicetask17(attempt, message) {&#xd;
+&#xd;
+	try {&#xd;
+&#xd;
+		var xml = createXml();&#xd;
+&#xd;
+		log.info(&quot; @@@@@ XML&quot; + xml);&#xd;
+		var contraint = [];&#xd;
+		contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST))&#xd;
+		contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, &quot;FopDependData&quot;, &quot;FopDependData&quot;, ConstraintType.MUST))&#xd;
+		var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);&#xd;
+&#xd;
+		if (saveRecord != null &amp;&amp; saveRecord.rowsCount &gt; 0) {&#xd;
+			var succes = saveRecord.getValue(0, &quot;success&quot;);&#xd;
+			log.info(&quot;RETORNO saveRecord&quot;);&#xd;
+			log.dir(saveRecord);&#xd;
+			if (succes == &quot;true&quot;) {&#xd;
+				log.info(&quot;Sucesso ao integrar com o RM.&quot;);&#xd;
+				return true;&#xd;
+			} else {&#xd;
+				throw saveRecord.getValue(0, &quot;result&quot;);&#xd;
+			}&#xd;
+&#xd;
+		} else {&#xd;
+			throw &quot;Erro no dataset saveRecord_rm&quot;&#xd;
+		}&#xd;
+	} catch (error) {&#xd;
+		log.info(&quot;Erro ao integrar com o RM: &quot; + error);&#xd;
+		throw error;&#xd;
+	}&#xd;
+&#xd;
+}&#xd;
+&#xd;
+function createXml() {&#xd;
+&#xd;
+	var tipo = hAPI.getCardValue(&quot;tipoSolicitacaoIncluirAlterar&quot;);&#xd;
+	&#xd;
+&#xd;
+	var newElement = &quot;&lt;FopDepend&gt;&lt;PFDepend&gt;&quot;;&#xd;
+&#xd;
+	var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);&#xd;
+	var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
+	var NRODEPEND = tipo == &quot;incluir&quot; ? hAPI.getCardValue(&quot;dependenteUltimoID&quot;) : hAPI.getCardValue(&quot;idDependente&quot;);&#xd;
+	var NOME = hAPI.getCardValue(&quot;dependenteNomeCompleto&quot;);&#xd;
+	var DTNASCIMENTO = hAPI.getCardValue(&quot;dependenteDtNascimento&quot;);&#xd;
+	var CPF = String(hAPI.getCardValue(&quot;cpfDependente&quot;)).replace(/[^0-9]/g, &apos;&apos;);&#xd;
+	var SEXO = hAPI.getCardValue(&quot;dependenteSexo&quot;);&#xd;
+	var GRAUPARENTESCO = hAPI.getCardValue(&quot;dependenteGrauParentesco&quot;);&#xd;
+	var GRAUDEINSTRUCAO = hAPI.getCardValue(&quot;dependenteGrauInstrucao&quot;);&#xd;
+	var RECEBEAUXPCD = hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;true&quot; ? &quot;T&quot; : &quot;F&quot;;&#xd;
+	var UNIVERSITARIO = hAPI.getCardValue(&quot;dependenteUniversitario&quot;);&#xd;
+	var LOCALNASCIMENTO = hAPI.getCardValue(&quot;dependenteMunicipioNascimento&quot;);&#xd;
+	var ESTADOCIVIL = hAPI.getCardValue(&quot;dependenteEstadoCivil&quot;);&#xd;
+	var NUMDECLARANASCVIVO = hAPI.getCardValue(&quot;numeroDeclaracao&quot;);&#xd;
+	var NOMEMAE = hAPI.getCardValue(&quot;dependenteNomeMae&quot;);&#xd;
+&#xd;
+&#xd;
+&#xd;
+	var ASSMED = hAPI.getCardValue(&quot;temMedica&quot;);&#xd;
+	var DTINCLUSAOASSMED = hAPI.getCardValue(&quot;DTINCLUSAOASSMED&quot;);&#xd;
+	var DTEXCLUSAOASSMED = hAPI.getCardValue(&quot;DTEXCLUSAOASSMED&quot;);&#xd;
+&#xd;
+	if (ASSMED == &quot;0&quot; &amp;&amp; DTEXCLUSAOASSMED == &quot;&quot;) {&#xd;
+		DTEXCLUSAOASSMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTINCLUSAOASSMED = &quot;&quot;;&#xd;
+	}&#xd;
+	if (ASSMED == &quot;1&quot; &amp;&amp; DTINCLUSAOASSMED == &quot;&quot;) {&#xd;
+		DTINCLUSAOASSMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTEXCLUSAOASSMED = &quot;&quot;;&#xd;
+	}&#xd;
+&#xd;
+	var ASSODO = hAPI.getCardValue(&quot;temOdonto&quot;);&#xd;
+	var DTINCLUSAOASSODO = hAPI.getCardValue(&quot;DTINCLUSAOASSODO&quot;);&#xd;
+	var DTEXCLUSAOASSODO = hAPI.getCardValue(&quot;DTEXCLUSAOASSODO&quot;);&#xd;
+&#xd;
+	if (ASSODO == &quot;0&quot; &amp;&amp; DTINCLUSAOASSODO != &quot;&quot;) {&#xd;
+		DTEXCLUSAOASSODO = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTINCLUSAOASSODO = &quot;&quot;;&#xd;
+	}&#xd;
+&#xd;
+	if (ASSODO == &quot;1&quot; &amp;&amp; DTINCLUSAOASSODO == &quot;&quot;) {&#xd;
+		DTINCLUSAOASSODO = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTEXCLUSAOASSODO = &quot;&quot;;&#xd;
+	}&#xd;
+&#xd;
+	var IMPOSTORENDA = hAPI.getCardValue(&quot;temIR&quot;);&#xd;
+	var DTINCLUSAOIR = hAPI.getCardValue(&quot;DTINCLUSAOIR&quot;);&#xd;
+	var DTEXCLUSAOIR = hAPI.getCardValue(&quot;DTEXCLUSAOIR&quot;);&#xd;
+&#xd;
+	if (IMPOSTORENDA == &quot;0&quot;) {&#xd;
+		DTEXCLUSAOIR = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+	}&#xd;
+	if (IMPOSTORENDA == &quot;1&quot;) {&#xd;
+		DTINCLUSAOIR = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTEXCLUSAOIR = &quot;&quot;;&#xd;
+	}&#xd;
+&#xd;
+	var AUXMEDICAMENTO = hAPI.getCardValue(&quot;temMedicamento&quot;);&#xd;
+	var DTINCLUSAOAUXMED = hAPI.getCardValue(&quot;DTINCLUSAOAUXMED&quot;);&#xd;
+	var DTEXCLUSAOAUXMED = hAPI.getCardValue(&quot;DTEXCLUSAOAUXMED&quot;);&#xd;
+&#xd;
+	if (AUXMEDICAMENTO == &quot;F&quot; &amp;&amp; DTINCLUSAOAUXMED != &quot;&quot;) {&#xd;
+		DTEXCLUSAOAUXMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTINCLUSAOAUXMED = &quot;&quot;;&#xd;
+	}&#xd;
+&#xd;
+	if (AUXMEDICAMENTO == &quot;T&quot; &amp;&amp; DTINCLUSAOAUXMED == &quot;&quot;) {&#xd;
+		DTINCLUSAOAUXMED = hAPI.getCardValue(&quot;dataAprovacaoRH&quot;).substr(0, 10);&#xd;
+		DTEXCLUSAOAUXMED = &quot;&quot;;&#xd;
+	}&#xd;
+&#xd;
+	if (ASSMED == &quot;0&quot;) {&#xd;
+		var INCASSISTMEDICA = &quot;0&quot;;&#xd;
+	} else {&#xd;
+		var INCASSISTMEDICA = &quot;1&quot;;&#xd;
+	}&#xd;
+	if (ASSODO == &quot;0&quot;) {&#xd;
+		var INCASSISTODONTO = &quot;0&quot;;&#xd;
+	} else {&#xd;
+		var INCASSISTODONTO = &quot;1&quot;;&#xd;
+	}&#xd;
+&#xd;
+&#xd;
+	newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);&#xd;
+	newElement += setNode(&quot;CHAPA&quot;, CHAPA);&#xd;
+	newElement += setNode(&quot;NRODEPEND&quot;, NRODEPEND);&#xd;
+	newElement += setNode(&quot;NOME&quot;, NOME);&#xd;
+	newElement += setNode(&quot;DTNASCIMENTO&quot;, DTNASCIMENTO);&#xd;
+	newElement += setNode(&quot;CPF&quot;, CPF);&#xd;
+	newElement += setNode(&quot;SEXO&quot;, SEXO);&#xd;
+	newElement += setNode(&quot;GRAUPARENTESCO&quot;, GRAUPARENTESCO);&#xd;
+	newElement += setNode(&quot;UNIVERSITARIO&quot;, UNIVERSITARIO);&#xd;
+	newElement += setNode(&quot;LOCALNASCIMENTO&quot;, LOCALNASCIMENTO);&#xd;
+	newElement += setNode(&quot;ESTADOCIVIL&quot;, ESTADOCIVIL);&#xd;
+	newElement += setNode(&quot;NUMDECLARANASCVIVO&quot;, NUMDECLARANASCVIVO);&#xd;
+	newElement += setNode(&quot;INCASSISTMEDICA&quot;, INCASSISTMEDICA);&#xd;
+	newElement += setNode(&quot;INCASSISTODONTO&quot;, INCASSISTODONTO);&#xd;
+	newElement += setNode(&quot;INCIRRF&quot;, IMPOSTORENDA);&#xd;
+&#xd;
+	newElement += &quot;&lt;/PFDepend&gt;&lt;PFDEPENDCOMPL&gt;&quot;&#xd;
+	newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);&#xd;
+	newElement += setNode(&quot;CHAPA&quot;, CHAPA);&#xd;
+	newElement += setNode(&quot;NRODEPEND&quot;, NRODEPEND);&#xd;
+	newElement += setNode(&quot;NOMEMAE&quot;, NOMEMAE);&#xd;
+	newElement += setNode(&quot;AUXMEDICAMENTO&quot;, AUXMEDICAMENTO);&#xd;
+	newElement += setNode(&quot;GRAUDEINSTRUCAO&quot;, GRAUDEINSTRUCAO);&#xd;
+	newElement += setNode(&quot;RECEBEAUXPCD&quot;, RECEBEAUXPCD);&#xd;
+	newElement += setNode(&quot;DTINCLUSAOASSMED&quot;, DTINCLUSAOASSMED);&#xd;
+	newElement += setNode(&quot;DTEXCLUSAOASSMED&quot;, DTEXCLUSAOASSMED);&#xd;
+	newElement += setNode(&quot;DTINCLUSAOASSODO&quot;, DTINCLUSAOASSODO);&#xd;
+	newElement += setNode(&quot;DTEXCLUSAOASSODO&quot;, DTEXCLUSAOASSODO);&#xd;
+	newElement += setNode(&quot;DTINCLUSAOAUXMED&quot;, DTINCLUSAOAUXMED);&#xd;
+	newElement += setNode(&quot;DTEXCLUSAOAUXMED&quot;, DTEXCLUSAOAUXMED);&#xd;
+	newElement += setNode(&quot;DTINCLUSAOIR&quot;, DTINCLUSAOIR);&#xd;
+	newElement += setNode(&quot;DTEXCLUSAOIR&quot;, DTEXCLUSAOIR);&#xd;
+	newElement += &quot;&lt;/PFDEPENDCOMPL&gt;&quot;&#xd;
+&#xd;
+&#xd;
+	newElement += &quot;&lt;/FopDepend&gt;&quot;;&#xd;
+&#xd;
+	return newElement;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+function setNode(node, valor) {&#xd;
+	var line = createNode(node) + valor + createNode(&quot;/&quot; + node);&#xd;
+	return line;&#xd;
+}&#xd;
+&#xd;
+function createNode(node) {&#xd;
+	return &quot;&lt;&quot; + node + &quot;&gt;&quot;;&#xd;
+}&#xd;
+&#xd;
 </eventDescription>
     </WorkflowProcessEvent>
   </list>
@@ -1225,7 +1215,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>15</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1236,7 +1226,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>29</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1247,7 +1237,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>32</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1258,7 +1248,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>32</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1269,7 +1259,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>33</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1280,7 +1270,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>33</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1291,7 +1281,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1302,7 +1292,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>36</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1313,7 +1303,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>11</version>
+        <version>13</version>
         <linkSequence>36</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
