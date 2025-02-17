@@ -1,5 +1,4 @@
 function displayFields(form, customHTML) {
-
 	if (form.getValue("dependenteAssociado") != "Sim") form.setVisibleById("divColaboradorDependente", false);
 
 	var activity = getValue('WKNumState');
@@ -28,15 +27,15 @@ function displayFields(form, customHTML) {
 		form.setValue("idExterno", idExterno);
 	}
 
-	if (activity == 0 || form.getValue("chapaColaborador") == "") {
-        var idExternoSolicitante = form.getValue("idExterno");
+	if (activity == 0) {
+		hAPI.setCardValue("idExternoSolicitante", idExterno);
 		var campos = ["diaCorte"]
         var c1 = [DatasetFactory.createConstraint('userSecurityId', 'gabriela.vieira', 'gabriela.vieira', ConstraintType.MUST)];
         var parametros = DatasetFactory.getDataset("ds_parametros_beneficios", campos, c1, null);
         form.setValue("diaCorte", parametros.getValue(0, "diaCorte"));
 
 		var email = retornoColleague.getValue(0, "mail")
-		var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExternoSolicitante, idExternoSolicitante, ConstraintType.MUST)]
+		var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExterno, idExterno, ConstraintType.MUST)]
 		var usuario = DatasetFactory.getDataset("ds_consulta_func_rm", null, contraintUsuario, null);
 
 		form.setValue("dtSolicitacao", getCurrentDate()[0]);
