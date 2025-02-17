@@ -75,16 +75,21 @@
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
+      <positionX>180</positionX>
+      <positionY>71</positionY>
       <positionX>180</positionX>
       <positionY>71</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
+      <periodId>Default</periodId>
       <periodId>Default</periodId>
       <stateType>0</stateType>
       <bpmnType>10</bpmnType>
@@ -126,11 +131,14 @@
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>510</positionX>
       <positionY>227</positionY>
+      <positionY>227</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
@@ -178,11 +186,13 @@
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>720</positionX>
       <positionY>58</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
@@ -230,6 +240,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>720</positionX>
+      <positionY>408</positionY>
       <positionY>408</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -280,11 +291,14 @@
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>530</positionX>
       <positionY>408</positionY>
+      <positionY>408</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
@@ -332,11 +346,14 @@
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>180</positionX>
       <positionY>227</positionY>
+      <positionY>227</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
@@ -386,6 +403,7 @@
       <automatic>false</automatic>
       <positionX>720</positionX>
       <positionY>478</positionY>
+      <positionY>478</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -419,6 +437,8 @@
       <automatic>true</automatic>
       <positionX>740</positionX>
       <positionY>218</positionY>
+      <positionX>740</positionX>
+      <positionY>218</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -444,6 +464,7 @@
       <automatic>true</automatic>
       <positionX>310</positionX>
       <positionY>31</positionY>
+      <positionY>31</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -468,6 +489,7 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>370</positionX>
+      <positionY>211</positionY>
       <positionY>211</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
@@ -507,6 +529,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>950</positionX>
+      <positionY>244</positionY>
       <positionY>244</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -552,8 +575,10 @@
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>950</positionX>
+      <positionY>418</positionY>
       <positionY>418</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
