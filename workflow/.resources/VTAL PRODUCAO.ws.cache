@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_361" class="java.beans.XMLDecoder">
+<java version="1.8.0_202" class="java.beans.XMLDecoder">
  <object class="java.util.HashMap">
   <void method="put">
    <string>volume</string>
@@ -209,6 +209,475 @@
      <string>valorPagamentoBaba</string>
     </void>
     <void index="41">
+     <string>WKNumProces</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>camposFormulario, documentoId = 16</string>
+   <array class="java.lang.String" length="84">
+    <void index="0">
+     <string>activity</string>
+    </void>
+    <void index="1">
+     <string>alteraEndereco</string>
+    </void>
+    <void index="2">
+     <string>alteraPlanoOdontologicoAtual</string>
+    </void>
+    <void index="3">
+     <string>alteraPrevidenciaPrivadaAtual</string>
+    </void>
+    <void index="4">
+     <string>alterarEndereco</string>
+    </void>
+    <void index="5">
+     <string>alterarFormMetLife</string>
+    </void>
+    <void index="6">
+     <string>alteraSeguroVidaAtual</string>
+    </void>
+    <void index="7">
+     <string>alteraValeRefeicaoAtual</string>
+    </void>
+    <void index="8">
+     <string>alteraVT</string>
+    </void>
+    <void index="9">
+     <string>alteraVTAtual</string>
+    </void>
+    <void index="10">
+     <string>celularColaborador</string>
+    </void>
+    <void index="11">
+     <string>chapaColaborador</string>
+    </void>
+    <void index="12">
+     <string>cienciaPrevidenciaPrivada</string>
+    </void>
+    <void index="13">
+     <string>cienciaValeTransporte</string>
+    </void>
+    <void index="14">
+     <string>codLinha</string>
+    </void>
+    <void index="15">
+     <string>codPlanoOdontologicoAtual</string>
+    </void>
+    <void index="16">
+     <string>codPlanoOdontologicoNovo</string>
+    </void>
+    <void index="17">
+     <string>codPrevidenciaPrivadaAtual</string>
+    </void>
+    <void index="18">
+     <string>codPrevidenciaPrivadaNovo</string>
+    </void>
+    <void index="19">
+     <string>codSeguroVidaAtual</string>
+    </void>
+    <void index="20">
+     <string>codSeguroVidaNovo</string>
+    </void>
+    <void index="21">
+     <string>codValeRefeicaoAtual</string>
+    </void>
+    <void index="22">
+     <string>codValeRefeicaoNovo</string>
+    </void>
+    <void index="23">
+     <string>cpfColaborador</string>
+    </void>
+    <void index="24">
+     <string>dataAprovacao</string>
+    </void>
+    <void index="25">
+     <string>dataPlanoOdontologicoAtual</string>
+    </void>
+    <void index="26">
+     <string>dataPrevidenciaPrivadaAtual</string>
+    </void>
+    <void index="27">
+     <string>dataSeguroVidaAtual</string>
+    </void>
+    <void index="28">
+     <string>dataValeRefeicaoAtual</string>
+    </void>
+    <void index="29">
+     <string>desativar</string>
+    </void>
+    <void index="30">
+     <string>descricaoLinhaTransporte</string>
+    </void>
+    <void index="31">
+     <string>diaCorte</string>
+    </void>
+    <void index="32">
+     <string>dtInicio</string>
+    </void>
+    <void index="33">
+     <string>dtSolicitacao</string>
+    </void>
+    <void index="34">
+     <string>emailColaborador</string>
+    </void>
+    <void index="35">
+     <string>enderecoBairro</string>
+    </void>
+    <void index="36">
+     <string>enderecoCep</string>
+    </void>
+    <void index="37">
+     <string>enderecoCidade</string>
+    </void>
+    <void index="38">
+     <string>enderecoComplemento</string>
+    </void>
+    <void index="39">
+     <string>enderecoEstado</string>
+    </void>
+    <void index="40">
+     <string>enderecoLogradouro</string>
+    </void>
+    <void index="41">
+     <string>enderecoNumero</string>
+    </void>
+    <void index="42">
+     <string>excluiPrevidencia</string>
+    </void>
+    <void index="43">
+     <string>excluiPrevidenciaPrivadaAtual</string>
+    </void>
+    <void index="44">
+     <string>excluiSeguroVida</string>
+    </void>
+    <void index="45">
+     <string>excluiSeguroVidaAtual</string>
+    </void>
+    <void index="46">
+     <string>excluiVT</string>
+    </void>
+    <void index="47">
+     <string>excluiVTatual</string>
+    </void>
+    <void index="48">
+     <string>formMode</string>
+    </void>
+    <void index="49">
+     <string>generoColaborador</string>
+    </void>
+    <void index="50">
+     <string>idAprovador</string>
+    </void>
+    <void index="51">
+     <string>idEmpresa</string>
+    </void>
+    <void index="52">
+     <string>idExterno</string>
+    </void>
+    <void index="53">
+     <string>idExternoSolicitante</string>
+    </void>
+    <void index="54">
+     <string>idMetLife</string>
+    </void>
+    <void index="55">
+     <string>nomeAprovador</string>
+    </void>
+    <void index="56">
+     <string>nomeColaborador</string>
+    </void>
+    <void index="57">
+     <string>nomeLinha</string>
+    </void>
+    <void index="58">
+     <string>nomePlanoOdontologicoNovo</string>
+    </void>
+    <void index="59">
+     <string>nomePrevidenciaPrivadaNovo</string>
+    </void>
+    <void index="60">
+     <string>nomeSeguroVidaNovo</string>
+    </void>
+    <void index="61">
+     <string>nomeValeRefeicaoNovo</string>
+    </void>
+    <void index="62">
+     <string>observacaoTransporte</string>
+    </void>
+    <void index="63">
+     <string>observacoesAprovacao</string>
+    </void>
+    <void index="64">
+     <string>permiteOdonto</string>
+    </void>
+    <void index="65">
+     <string>planoOdontologico</string>
+    </void>
+    <void index="66">
+     <string>planoOdontologicoAtual</string>
+    </void>
+    <void index="67">
+     <string>planoOdontologicoNovo</string>
+    </void>
+    <void index="68">
+     <string>precoUnitarioTransporte</string>
+    </void>
+    <void index="69">
+     <string>previdenciaPrivada</string>
+    </void>
+    <void index="70">
+     <string>previdenciaPrivadaAtual</string>
+    </void>
+    <void index="71">
+     <string>previdenciaPrivadaNovo</string>
+    </void>
+    <void index="72">
+     <string>quantidadeTransporte</string>
+    </void>
+    <void index="73">
+     <string>radioAprovacao</string>
+    </void>
+    <void index="74">
+     <string>salarioColaborador</string>
+    </void>
+    <void index="75">
+     <string>seguroVida</string>
+    </void>
+    <void index="76">
+     <string>seguroVidaAtual</string>
+    </void>
+    <void index="77">
+     <string>seguroVidaNovo</string>
+    </void>
+    <void index="78">
+     <string>taxaSeguroVidaNovo</string>
+    </void>
+    <void index="79">
+     <string>valeRefeicaoAlimentacao</string>
+    </void>
+    <void index="80">
+     <string>valeRefeicaoAtual</string>
+    </void>
+    <void index="81">
+     <string>valeRefeicaoNovo</string>
+    </void>
+    <void index="82">
+     <string>valeTransporte</string>
+    </void>
+    <void index="83">
+     <string>WKNumProces</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>mecanismoPapel</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>admin</string>
+      </void>
+      <void property="roleId">
+       <string>admin</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>camposFormulario, documentoId = 17</string>
+   <array class="java.lang.String" length="63">
+    <void index="0">
+     <string>activity</string>
+    </void>
+    <void index="1">
+     <string>alterarBnfPcd</string>
+    </void>
+    <void index="2">
+     <string>aprovacaoRH</string>
+    </void>
+    <void index="3">
+     <string>aprovacaoSaude</string>
+    </void>
+    <void index="4">
+     <string>celularColaborador</string>
+    </void>
+    <void index="5">
+     <string>chapaColaborador</string>
+    </void>
+    <void index="6">
+     <string>checkBeneficios</string>
+    </void>
+    <void index="7">
+     <string>checkDocumentos</string>
+    </void>
+    <void index="8">
+     <string>checkVeracidade</string>
+    </void>
+    <void index="9">
+     <string>cpfDependente</string>
+    </void>
+    <void index="10">
+     <string>dataAprovacaoRH</string>
+    </void>
+    <void index="11">
+     <string>dataAprovacaoSaude</string>
+    </void>
+    <void index="12">
+     <string>dataNascimento</string>
+    </void>
+    <void index="13">
+     <string>dataVeracidade</string>
+    </void>
+    <void index="14">
+     <string>dependenteDtNascimento</string>
+    </void>
+    <void index="15">
+     <string>dependenteEstadoCivil</string>
+    </void>
+    <void index="16">
+     <string>dependenteGrauInstrucao</string>
+    </void>
+    <void index="17">
+     <string>dependenteGrauParentesco</string>
+    </void>
+    <void index="18">
+     <string>dependenteMunicipioNascimento</string>
+    </void>
+    <void index="19">
+     <string>dependenteNomeCompleto</string>
+    </void>
+    <void index="20">
+     <string>dependenteNomeMae</string>
+    </void>
+    <void index="21">
+     <string>dependentePCD</string>
+    </void>
+    <void index="22">
+     <string>dependenteSexo</string>
+    </void>
+    <void index="23">
+     <string>dependenteUltimoID</string>
+    </void>
+    <void index="24">
+     <string>dependenteUniversitario</string>
+    </void>
+    <void index="25">
+     <string>diaCorte</string>
+    </void>
+    <void index="26">
+     <string>DTEXCLUSAOASSMED</string>
+    </void>
+    <void index="27">
+     <string>DTEXCLUSAOASSODO</string>
+    </void>
+    <void index="28">
+     <string>DTEXCLUSAOAUXMED</string>
+    </void>
+    <void index="29">
+     <string>DTEXCLUSAOIR</string>
+    </void>
+    <void index="30">
+     <string>DTINCLUSAOASSMED</string>
+    </void>
+    <void index="31">
+     <string>DTINCLUSAOASSODO</string>
+    </void>
+    <void index="32">
+     <string>DTINCLUSAOAUXMED</string>
+    </void>
+    <void index="33">
+     <string>DTINCLUSAOIR</string>
+    </void>
+    <void index="34">
+     <string>dtSolicitacao</string>
+    </void>
+    <void index="35">
+     <string>emailColaborador</string>
+    </void>
+    <void index="36">
+     <string>formMode</string>
+    </void>
+    <void index="37">
+     <string>generoColaborador</string>
+    </void>
+    <void index="38">
+     <string>grauParentesco</string>
+    </void>
+    <void index="39">
+     <string>idAprovadorRH</string>
+    </void>
+    <void index="40">
+     <string>idAprovadorSaude</string>
+    </void>
+    <void index="41">
+     <string>idDependente</string>
+    </void>
+    <void index="42">
+     <string>idEmpresa</string>
+    </void>
+    <void index="43">
+     <string>idExterno</string>
+    </void>
+    <void index="44">
+     <string>idExternoSolicitante</string>
+    </void>
+    <void index="45">
+     <string>isAlterarBnfPcd</string>
+    </void>
+    <void index="46">
+     <string>IsDependentePCD</string>
+    </void>
+    <void index="47">
+     <string>localVeracidade</string>
+    </void>
+    <void index="48">
+     <string>nomeAprovadorRH</string>
+    </void>
+    <void index="49">
+     <string>nomeAprovadorSaude</string>
+    </void>
+    <void index="50">
+     <string>nomeColaborador</string>
+    </void>
+    <void index="51">
+     <string>nomeDependente</string>
+    </void>
+    <void index="52">
+     <string>nomeEmpresa</string>
+    </void>
+    <void index="53">
+     <string>numeroDeclaracao</string>
+    </void>
+    <void index="54">
+     <string>obsRH</string>
+    </void>
+    <void index="55">
+     <string>obsSaude</string>
+    </void>
+    <void index="56">
+     <string>temIR</string>
+    </void>
+    <void index="57">
+     <string>temMedica</string>
+    </void>
+    <void index="58">
+     <string>temMedicamento</string>
+    </void>
+    <void index="59">
+     <string>temOdonto</string>
+    </void>
+    <void index="60">
+     <string>tipoSolicitacao</string>
+    </void>
+    <void index="61">
+     <string>tipoSolicitacaoIncluirAlterar</string>
+    </void>
+    <void index="62">
      <string>WKNumProces</string>
     </void>
    </array>
