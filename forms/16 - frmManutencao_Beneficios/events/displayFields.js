@@ -30,7 +30,7 @@ function displayFields(form, customHTML) {
     var requestDate = getCurrentDate();
 
     if (activity == 0) {
-        hAPI.setCardValue("idExternoSolicitante", idExterno);
+        form.setValue("idExternoSolicitante", idExterno);
         var campos = ["diaCorte", "dataInicio", "dataLimite", "alteracao"]
         var c1 = [DatasetFactory.createConstraint('userSecurityId', 'gabriela.vieira', 'gabriela.vieira', ConstraintType.MUST)];
         var parametros = DatasetFactory.getDataset("ds_parametros_beneficios", campos, c1, null);
