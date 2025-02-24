@@ -44,7 +44,9 @@ function createXml() {
 		var TIPOPAGAMENTO = hAPI.getCardValue("tipoPagamentoBaba");
 		var ANOPAGTO = hAPI.getCardValue("dataPagamentoBaba").substr(3);
 		var MESPAGTO =  hAPI.getCardValue("dataPagamentoBaba").substr(0,2);
-		var VALOR = hAPI.getCardValue("valorPagamentoBaba").replace("R$ ","").replace(".","");
+		var VALOR = hAPI.getCardValue("valorPagamentoBaba")
+		.replace(/[^0-9,.]/g, '') // Remove todos os caracteres que não sejam números, vírgulas ou pontos
+		.replace(/\./g, '') // Remove todos os pontos
 	}
 
 	for (var i = 1; i <= quantidade; i++) {
@@ -53,7 +55,9 @@ function createXml() {
 			var TIPOPAGAMENTO = hAPI.getCardValue("tipoPagamentoAuxilio___"+i);
 			var ANOPAGTO = hAPI.getCardValue("dataPagamentoAuxilio___"+i).substr(3);
 			var MESPAGTO = hAPI.getCardValue("dataPagamentoAuxilio___"+i).substr(0,2);
-			var VALOR = hAPI.getCardValue("valorPagamentoAuxilio___"+i).replace("R$ ","").replace(".","");
+			var VALOR = hAPI.getCardValue("valorPagamentoAuxilio___"+i)
+			.replace(/[^0-9,.]/g, '') // Remove todos os caracteres que não sejam números, vírgulas ou pontos
+			.replace(/\./g, '') // Remove todos os pontos
 		}
 		
 		var CODCOLIGADA = hAPI.getCardValue("idEmpresa");

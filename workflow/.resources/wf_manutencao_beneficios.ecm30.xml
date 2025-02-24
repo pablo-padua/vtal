@@ -127,8 +127,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>179</positionX>
-      <positionY>211</positionY>
+      <positionX>180</positionX>
+      <positionY>228</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>true</notifyManagerFollowUp>
@@ -230,7 +230,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>380</positionX>
-      <positionY>387</positionY>
+      <positionY>402</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -282,7 +282,7 @@
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>180</positionX>
-      <positionY>396</positionY>
+      <positionY>402</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>true</notifyManagerFollowUp>
@@ -333,7 +333,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>380</positionX>
-      <positionY>445</positionY>
+      <positionY>460</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -451,7 +451,7 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>630</positionX>
+      <positionX>640</positionX>
       <positionY>412</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
@@ -1222,7 +1222,7 @@ function formataData(data) {
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
       <positionX>647</positionX>
-      <positionY>93</positionY>
+      <positionY>88</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
