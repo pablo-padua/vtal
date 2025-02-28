@@ -29,7 +29,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitação de reembolso </processId>
-      <version>7</version>
+      <version>10</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>18</formId>
@@ -477,7 +477,7 @@
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
         <expressionOrder>1</expressionOrder>
-        <version>7</version>
+        <version>10</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacao&quot;) == &quot;aprovar&quot;</condition>
@@ -489,7 +489,7 @@
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
         <expressionOrder>2</expressionOrder>
-        <version>7</version>
+        <version>10</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacao&quot;) == &quot;reprovar&quot;</condition>
@@ -501,7 +501,7 @@
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
         <expressionOrder>3</expressionOrder>
-        <version>7</version>
+        <version>10</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacao&quot;) == &quot;ajustar&quot;</condition>
@@ -904,7 +904,7 @@ function formataData(dataAbertura) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
-        <version>7</version>
+        <version>10</version>
         <linkSequence>26</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
