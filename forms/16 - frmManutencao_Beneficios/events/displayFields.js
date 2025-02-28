@@ -15,7 +15,12 @@ function displayFields(form, customHTML) {
     var fields = new Array("colleagueName", "mail", "colleaguePK.colleagueId");
 	var retornoColleague = DatasetFactory.getDataset("colleague", fields, filter, null);
 	var idExterno = retornoColleague.getValue(0, "colleaguePK.colleagueId");
-    if (!isProd) idExterno = 'b8463a7cfd134cc89bbfa2c74c737952'; //excluir essa linha depois que o QA estiver linkado com IDENTITY
+    if (idExterno == 'b8bbd8be8929414ab255699de0c7640f') {
+		idExterno = "fb42dc0ff40d4565b916b358d8ebeeb0" //AMBIENTE QA
+	}
+	if (idExterno == 'gabriela.vieira') {
+		idExterno = "628985d9a0e44ce9986f54ebf726cde4" //AMBIENTE PROD
+	}
     
     if (activity == 0 || activity == 4) { // Se for Inicio
         if (!idExterno) return form.setValue("idExterno", "Erro ao buscar idExterno");
@@ -24,8 +29,8 @@ function displayFields(form, customHTML) {
 
     var requestDate = getCurrentDate();
 
-    if (activity == 0 || form.getValue("chapaColaborador") == "") {
-        var idExternoSolicitante = form.getValue("idExterno");
+    if (activity == 0) {
+        form.setValue("idExternoSolicitante", idExterno);
         var campos = ["diaCorte", "dataInicio", "dataLimite", "alteracao"]
         var c1 = [DatasetFactory.createConstraint('userSecurityId', 'gabriela.vieira', 'gabriela.vieira', ConstraintType.MUST)];
         var parametros = DatasetFactory.getDataset("ds_parametros_beneficios", campos, c1, null);
@@ -39,7 +44,7 @@ function displayFields(form, customHTML) {
         form.setValue("permiteOdonto", permiteOdonto);
 
         var email = retornoColleague.getValue(0, "mail");
-        var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExternoSolicitante, idExternoSolicitante, ConstraintType.MUST)]
+        var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExterno, idExterno, ConstraintType.MUST)]
         var usuario = DatasetFactory.getDataset("ds_consulta_func_rm", null, contraintUsuario, null);
 
         form.setValue("dtSolicitacao", getCurrentDate()[0]);

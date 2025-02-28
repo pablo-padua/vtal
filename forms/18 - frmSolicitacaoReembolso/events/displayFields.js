@@ -12,30 +12,31 @@ function displayFields(form,customHTML){
     var filter = new Array(c1);
     var fields = new Array("colleagueName", "mail", "colleaguePK.colleagueId");
     var retornoColleague = DatasetFactory.getDataset("colleague", fields, filter, null);
+    var idExterno = retornoColleague.getValue(0, "colleaguePK.colleagueId");
+    if (idExterno == 'b8bbd8be8929414ab255699de0c7640f') {
+        idExterno = "fb42dc0ff40d4565b916b358d8ebeeb0" //AMBIENTE QA
+    }
+    if (idExterno == 'gabriela.vieira') {
+        idExterno = "dddc3e710d304fa1a0edc51eadad2c0c" //AMBIENTE PROD
+    }
 
     if (activity == 0 || activity == 4) {
-        var idExterno = retornoColleague.getValue(0, "colleaguePK.colleagueId");
         if (!idExterno) return form.setValue("idExterno", "Erro ao buscar idExterno");
-        if (idExterno == 'b8bbd8be8929414ab255699de0c7640f') {
-            idExterno = "fb42dc0ff40d4565b916b358d8ebeeb0" //AMBIENTE QA
-        }
-        if (idExterno == 'gabriela.vieira') {
-            idExterno = "774fabb1af7e43babcf4de942acdd36f" //AMBIENTE PROD
-        }
         form.setValue("idExterno", idExterno);
     }
 
-    if(activity == 0 || form.getValue("chapaColaborador") == ""){
-        var idExternoSolicitante = form.getValue("idExterno");
-        var campos = ["pai","mae","diaCorte"]
-        var c1 = [DatasetFactory.createConstraint('userSecurityId', 'gabriela.vieira', 'gabriela.vieira', ConstraintType.MUST)];
-        var parametros = DatasetFactory.getDataset("ds_parametros_beneficios", campos, c1, null);
+    if (activity == 0) {
+        form.setValue("idExternoSolicitante", idExterno);
+        var campos = ["pai","mae","diaCorte"];
+        var c1Param = DatasetFactory.createConstraint('userSecurityId', 'gabriela.vieira', 'gabriela.vieira', ConstraintType.MUST);
+        var contraintsParam = [c1Param];
+        var parametros = DatasetFactory.getDataset("ds_parametros_beneficios", campos, contraintsParam, null);
         form.setValue("idadePAi", parametros.getValue(0, "pai"));
         form.setValue("idadeMae", parametros.getValue(0, "mae"));
         form.setValue("diaCorte", parametros.getValue(0, "diaCorte"));
 
-        var email =  retornoColleague.getValue(0, "mail")
-        var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExternoSolicitante, idExternoSolicitante, ConstraintType.MUST)]
+        var email =  retornoColleague.getValue(0, "mail");
+        var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExterno, idExterno, ConstraintType.MUST)];
         var usuario = DatasetFactory.getDataset("ds_consulta_func_rm", null, contraintUsuario, null);
 
         form.setValue("dtSolicitacao", getCurrentDate()[0]);
@@ -47,7 +48,6 @@ function displayFields(form,customHTML){
         form.setValue("celularColaborador", String(usuario.getValue(0, "TELEFONE2")).replace(/^(\d{2})(\d{5})(\d{4})/, "(\$1) \$2-\$3"));
         form.setValue("nomeEmpresa", usuario.getValue(0, "NOMECOLIGADA"));
         form.setValue("emailColaborador", email);
-
     }
 
 

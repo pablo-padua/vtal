@@ -127,8 +127,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>144</positionX>
-      <positionY>220</positionY>
+      <positionX>140</positionX>
+      <positionY>243</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>true</notifyManagerFollowUp>
@@ -163,8 +163,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Executor Atividade</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;idExternoSolicitante&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -180,7 +180,7 @@
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>370</positionX>
-      <positionY>68</positionY>
+      <positionY>73</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>true</notifyManagerFollowUp>
@@ -231,7 +231,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>370</positionX>
-      <positionY>404</positionY>
+      <positionY>427</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -266,8 +266,8 @@
       <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Grupo</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;SOLICITACOES-COM-ERRO&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -282,8 +282,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>145</positionX>
-      <positionY>413</positionY>
+      <positionX>140</positionX>
+      <positionY>427</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>true</notifyManagerFollowUp>
@@ -334,7 +334,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>370</positionX>
-      <positionY>470</positionY>
+      <positionY>493</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -366,8 +366,8 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>392</positionX>
-      <positionY>214</positionY>
+      <positionX>390</positionX>
+      <positionY>220</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -405,8 +405,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>666</positionX>
-      <positionY>429</positionY>
+      <positionX>670</positionX>
+      <positionY>437</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -686,147 +686,231 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>wf_solicitacao_reembolso</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeTaskSave(colleagueId,nextSequenceId,userList){&#xd;
+    var activity = getValue(&quot;WKNumState&quot;);&#xd;
+    if (activity == 0 || activity == 4) { // Se for Inicio&#xd;
+        var chapaColaborador = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
+        var idExterno = hAPI.getCardValue(&quot;idExterno&quot;);&#xd;
+        if (!idExterno || idExterno == &quot;&quot; || idExterno == null || idExterno == &quot;null&quot;) {&#xd;
+            throw &quot;O campo idExterno não foi preenchido.&quot;;&#xd;
+        }&#xd;
+&#xd;
+        var idExternoSolicitante = hAPI.getCardValue(&quot;idExternoSolicitante&quot;);&#xd;
+        if (!idExternoSolicitante || idExternoSolicitante == &quot;&quot; || idExternoSolicitante == null || idExternoSolicitante == &quot;null&quot;) {&#xd;
+            hAPI.setCardValue(&quot;idExternoSolicitante&quot;, idExterno);&#xd;
+        }&#xd;
+&#xd;
+        if (!chapaColaborador || chapaColaborador == &quot;&quot; || chapaColaborador == null || chapaColaborador == &quot;null&quot;) {&#xd;
+            var c1 = DatasetFactory.createConstraint(&quot;colleagueId&quot;, idExterno, idExterno, ConstraintType.MUST);&#xd;
+	        var filter = new Array(c1);&#xd;
+            var fields = new Array(&quot;colleagueName&quot;, &quot;mail&quot;, &quot;colleaguePK.colleagueId&quot;);&#xd;
+	        var retornoColleague = DatasetFactory.getDataset(&quot;colleague&quot;, fields, filter, null);&#xd;
+            if (!retornoColleague || !retornoColleague.rowsCount) {&#xd;
+                throw &quot;ID Externo inválido.&quot;;&#xd;
+            }&#xd;
+&#xd;
+            var campos = [&quot;pai&quot;,&quot;mae&quot;,&quot;diaCorte&quot;]&#xd;
+            var c1 = [DatasetFactory.createConstraint(&apos;userSecurityId&apos;, &apos;gabriela.vieira&apos;, &apos;gabriela.vieira&apos;, ConstraintType.MUST)];&#xd;
+            var parametros = DatasetFactory.getDataset(&quot;dsParametrosBeneficios&quot;, campos, c1, null);&#xd;
+            if (!parametros || !parametros.rowsCount) {&#xd;
+                throw &quot;Parâmetros não encontrados.&quot;;&#xd;
+            }&#xd;
+            hAPI.setCardValue(&quot;idadePAi&quot;, parametros.getValue(0, &quot;pai&quot;));&#xd;
+            hAPI.setCardValue(&quot;idadeMae&quot;, parametros.getValue(0, &quot;mae&quot;));&#xd;
+            hAPI.setCardValue(&quot;diaCorte&quot;, parametros.getValue(0, &quot;diaCorte&quot;));&#xd;
+&#xd;
+            var email =  retornoColleague.getValue(0, &quot;mail&quot;)&#xd;
+            var contraintUsuario = [DatasetFactory.createConstraint(&quot;idExterno&quot;, idExterno, idExterno, ConstraintType.MUST)]&#xd;
+            var usuario = DatasetFactory.getDataset(&quot;ds_consulta_func_rm&quot;, null, contraintUsuario, null);&#xd;
+            if (!usuario || !usuario.rowsCount) {&#xd;
+                throw &quot;Funcionário não encontrado no RM com esse ID Externo.&quot;;&#xd;
+            }&#xd;
+&#xd;
+            hAPI.setCardValue(&quot;dtSolicitacao&quot;, getCurrentDate()[0]);&#xd;
+&#xd;
+            hAPI.setCardValue(&quot;idEmpresa&quot;, usuario.getValue(0, &quot;CODCOLIGADA&quot;));&#xd;
+            hAPI.setCardValue(&quot;nomeColaborador&quot;, usuario.getValue(0, &quot;NOME&quot;));&#xd;
+            hAPI.setCardValue(&quot;chapaColaborador&quot;, usuario.getValue(0, &quot;CHAPA&quot;));&#xd;
+            hAPI.setCardValue(&quot;generoColaborador&quot;, usuario.getValue(0, &quot;SEXO&quot;));&#xd;
+            hAPI.setCardValue(&quot;celularColaborador&quot;, String(usuario.getValue(0, &quot;TELEFONE2&quot;)).replace(/^(\d{2})(\d{5})(\d{4})/, &quot;(\$1) \$2-\$3&quot;));&#xd;
+            hAPI.setCardValue(&quot;nomeEmpresa&quot;, usuario.getValue(0, &quot;NOMECOLIGADA&quot;));&#xd;
+            hAPI.setCardValue(&quot;emailColaborador&quot;, email);&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function getCurrentDate() {&#xd;
+	var newDate = new Date();&#xd;
+	var h = newDate.getHours();&#xd;
+	if (h &lt; 10) {&#xd;
+		h = &quot;0&quot; + h;&#xd;
+	}&#xd;
+	var m = newDate.getMinutes();&#xd;
+	if (m &lt; 10) {&#xd;
+		m = &quot;0&quot; + m;&#xd;
+	}&#xd;
+	var hour = h + &quot;:&quot; + m; // + &quot;:&quot; + s;&#xd;
+	var day = newDate.getDate();&#xd;
+	if (day &lt; 10) {&#xd;
+		day = &quot;0&quot; + day;&#xd;
+	}&#xd;
+	var month = newDate.getMonth() + 1;&#xd;
+	if (month &lt; 10) {&#xd;
+		month = &quot;0&quot; + month;&#xd;
+	}&#xd;
+	newDate = day + &apos;/&apos; + month + &apos;/&apos; + newDate.getFullYear();&#xd;
+	var currentDate = [newDate, hour];&#xd;
+	return currentDate;&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
         <eventId>servicetask19</eventId>
         <processId>wf_solicitacao_reembolso</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask19(attempt, message) {&#xd;
-&#xd;
-	try {&#xd;
-&#xd;
-		var xml = createXml();&#xd;
-&#xd;
-		log.info(&quot; @@@@@ XML&quot; + xml);&#xd;
-		var contraint = [];&#xd;
-		contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));&#xd;
-		contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, &quot;RMSPRJ4921856Server&quot;, &quot;RMSPRJ4921856Server&quot;, ConstraintType.MUST));&#xd;
-		var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);&#xd;
-&#xd;
-		if (saveRecord != null &amp;&amp; saveRecord.values.length &gt; 0) {&#xd;
-			var succes = saveRecord.getValue(0, &quot;success&quot;);&#xd;
-			if (succes == &quot;true&quot;) {&#xd;
-				log.info(&quot;Sucesso ao integrar com o RM.&quot;);&#xd;
-				return true;&#xd;
-			} else {&#xd;
-				throw saveRecord.getValue(0, &quot;result&quot;);&#xd;
-			}&#xd;
-&#xd;
-		} else {&#xd;
-			throw &quot;Erro no dataset saveRecord_rm&quot;;&#xd;
-		}&#xd;
-	} catch (error) {&#xd;
-		log.info(&quot;Erro ao integrar com o RM: &quot; + error);&#xd;
-		throw error;&#xd;
-	}&#xd;
-}&#xd;
-&#xd;
-function createXml() {&#xd;
-&#xd;
-	var newElement = &quot;&lt;PRJ4921856&gt;&quot;;&#xd;
-&#xd;
-	var TIPOREEMBOLSO = hAPI.getCardValue(&quot;tipoReembolso&quot;);&#xd;
-&#xd;
-	var quantidade;&#xd;
-&#xd;
-	if (TIPOREEMBOLSO == &quot;1&quot;) {&#xd;
-		quantidade = hAPI.getChildrenIndexes(&quot;tabela_auxilio_creche&quot;).length;&#xd;
-		&#xd;
-	} else {&#xd;
-		quantidade = 1&#xd;
-		var TIPOPAGAMENTO = hAPI.getCardValue(&quot;tipoPagamentoBaba&quot;);&#xd;
-		var ANOPAGTO = hAPI.getCardValue(&quot;dataPagamentoBaba&quot;).substr(3);&#xd;
-		var MESPAGTO =  hAPI.getCardValue(&quot;dataPagamentoBaba&quot;).substr(0,2);&#xd;
-		var VALOR = hAPI.getCardValue(&quot;valorPagamentoBaba&quot;).replace(&quot;R$ &quot;,&quot;&quot;).replace(&quot;.&quot;,&quot;&quot;);&#xd;
-	}&#xd;
-&#xd;
-	for (var i = 1; i &lt;= quantidade; i++) {&#xd;
-&#xd;
-		if(TIPOREEMBOLSO == &quot;1&quot;){&#xd;
-			var TIPOPAGAMENTO = hAPI.getCardValue(&quot;tipoPagamentoAuxilio___&quot;+i);&#xd;
-			var ANOPAGTO = hAPI.getCardValue(&quot;dataPagamentoAuxilio___&quot;+i).substr(3);&#xd;
-			var MESPAGTO = hAPI.getCardValue(&quot;dataPagamentoAuxilio___&quot;+i).substr(0,2);&#xd;
-			var VALOR = hAPI.getCardValue(&quot;valorPagamentoAuxilio___&quot;+i).replace(&quot;R$ &quot;,&quot;&quot;).replace(&quot;.&quot;,&quot;&quot;);&#xd;
-		}&#xd;
-		&#xd;
-		var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);&#xd;
-		var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
-		var NRODEPEND = hAPI.getCardValue(&quot;idDependente&quot;);&#xd;
-		var DTSOLICITACAO = hAPI.getCardValue(&quot;dtSolicitacao&quot;);&#xd;
-		var DTAPROVACAO = hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0,10);&#xd;
-		var NRSOLICITACAO = hAPI.getCardValue(&quot;WKNumProces&quot;);&#xd;
-		var DTCOMPETENCIA = formataData(DTSOLICITACAO);&#xd;
-		var MESCOMP = DTCOMPETENCIA.substr(5, 2);&#xd;
-		var ANOCOMP = DTCOMPETENCIA.substr(0, 4);&#xd;
-		&#xd;
-		var CPF = String(hAPI.getCardValue(&quot;cpfBaba&quot;)).replace(/[^0-9]/g, &apos;&apos;);	&#xd;
-		var CNPJ = String(hAPI.getCardValue(&quot;cnpjAuxilio&quot;)).replace(/[^0-9]/g, &apos;&apos;);&#xd;
-	&#xd;
-		newElement += &quot;&lt;ZMDREEMBOLSO&gt;&quot;;&#xd;
-		newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);&#xd;
-		newElement += setNode(&quot;CHAPA&quot;, CHAPA);&#xd;
-		newElement += setNode(&quot;NRODEPEND&quot;, NRODEPEND);&#xd;
-		newElement += setNode(&quot;DTSOLICITACAO&quot;, DTSOLICITACAO);&#xd;
-		newElement += setNode(&quot;TIPOPAGAMENTO&quot;, TIPOPAGAMENTO);&#xd;
-		newElement += setNode(&quot;TIPOREEMBOLSO&quot;, TIPOREEMBOLSO);&#xd;
-		newElement += setNode(&quot;CNPJ&quot;, CNPJ);&#xd;
-		newElement += setNode(&quot;CPF&quot;, CPF);&#xd;
-		newElement += setNode(&quot;ANOPAGTO&quot;, ANOPAGTO);&#xd;
-		newElement += setNode(&quot;MESPAGTO&quot;, MESPAGTO);&#xd;
-		newElement += setNode(&quot;VALOR&quot;, VALOR);&#xd;
-		newElement += setNode(&quot;DTAPROVACAO&quot;, DTAPROVACAO);&#xd;
-		newElement += setNode(&quot;NRSOLICITACAO&quot;, NRSOLICITACAO);&#xd;
-		newElement += setNode(&quot;MESCOMP&quot;, MESCOMP);&#xd;
-		newElement += setNode(&quot;ANOCOMP&quot;, ANOCOMP);&#xd;
-		newElement += &quot;&lt;/ZMDREEMBOLSO&gt;&quot;;&#xd;
-	}&#xd;
-&#xd;
-	newElement += &quot;&lt;/PRJ4921856&gt;&quot;;&#xd;
-&#xd;
-	return newElement;&#xd;
-}&#xd;
-&#xd;
-&#xd;
-function setNode(node, valor) {&#xd;
-	var line = createNode(node) + valor + createNode(&quot;/&quot; + node);&#xd;
-	return line;&#xd;
-}&#xd;
-&#xd;
-function createNode(node) {&#xd;
-	return &quot;&lt;&quot; + node + &quot;&gt;&quot;;&#xd;
-}&#xd;
-&#xd;
-function formataData(dataAbertura) {&#xd;
-    var dataFormatoMesDiaAno = dataAbertura.split(&quot;/&quot;);&#xd;
-    dataFormatoMesDiaAno = dataFormatoMesDiaAno[1] + &quot;/&quot; + dataFormatoMesDiaAno[0] + &quot;/&quot; + dataFormatoMesDiaAno[2];&#xd;
-    var dataAberturaSolicitacao = new Date(dataFormatoMesDiaAno);&#xd;
-    var diaCorte = parseInt(hAPI.getCardValue(&quot;diaCorte&quot;));&#xd;
-&#xd;
-    // Verifica se o dia da data de abertura é maior que o dia de corte&#xd;
-    if (dataAberturaSolicitacao.getDate() &gt; diaCorte) {&#xd;
-        // Salva o dia original&#xd;
-        var diaOriginal = dataAberturaSolicitacao.getDate();&#xd;
-        &#xd;
-        // Adiciona 1 mês à data atual&#xd;
-        dataAberturaSolicitacao.setMonth(dataAberturaSolicitacao.getMonth() + 1);&#xd;
-        &#xd;
-        // Se o novo dia for menor que o dia original, ajusta para o último dia do novo mês&#xd;
-        if (dataAberturaSolicitacao.getDate() &lt; diaOriginal) {&#xd;
-            dataAberturaSolicitacao.setDate(0); // O dia 0 do mês seguinte é o último dia do mês atual&#xd;
-        }&#xd;
-&#xd;
-        var ano = dataAberturaSolicitacao.getFullYear();&#xd;
-        var mes = dataAberturaSolicitacao.getMonth() + 1; // Meses são indexados de 0 a 11&#xd;
-        var dia = dataAberturaSolicitacao.getDate();&#xd;
-&#xd;
-        // Formata a nova data para &apos;YYYY-MM-DD&apos;&#xd;
-        var dataFormatada = ano + &apos;-&apos; + (mes &lt; 10 ? &apos;0&apos; + mes : mes) + &apos;-&apos; + (dia &lt; 10 ? &apos;0&apos; + dia : dia);&#xd;
-        return dataFormatada;&#xd;
-    } else {&#xd;
-        // A data não precisa ser modificada, apenas formata para &apos;YYYY-MM-DD&apos;&#xd;
-        var partes = dataAbertura.split(&quot;/&quot;);&#xd;
-        return partes[2] + &quot;-&quot; + partes[1] + &quot;-&quot; + partes[0];&#xd;
-    }&#xd;
-}&#xd;
+      <eventDescription>function servicetask19(attempt, message) {
+
+	try {
+
+		var xml = createXml();
+
+		log.info(&quot; @@@@@ XML&quot; + xml);
+		var contraint = [];
+		contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));
+		contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, &quot;RMSPRJ4921856Server&quot;, &quot;RMSPRJ4921856Server&quot;, ConstraintType.MUST));
+		var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);
+
+		if (saveRecord != null &amp;&amp; saveRecord.values.length &gt; 0) {
+			var succes = saveRecord.getValue(0, &quot;success&quot;);
+			if (succes == &quot;true&quot;) {
+				log.info(&quot;Sucesso ao integrar com o RM.&quot;);
+				return true;
+			} else {
+				throw saveRecord.getValue(0, &quot;result&quot;);
+			}
+
+		} else {
+			throw &quot;Erro no dataset saveRecord_rm&quot;;
+		}
+	} catch (error) {
+		log.info(&quot;Erro ao integrar com o RM: &quot; + error);
+		throw error;
+	}
+}
+
+function createXml() {
+
+	var newElement = &quot;&lt;PRJ4921856&gt;&quot;;
+
+	var TIPOREEMBOLSO = hAPI.getCardValue(&quot;tipoReembolso&quot;);
+
+	var quantidade;
+
+	if (TIPOREEMBOLSO == &quot;1&quot;) {
+		quantidade = hAPI.getChildrenIndexes(&quot;tabela_auxilio_creche&quot;).length;
+		
+	} else {
+		quantidade = 1
+		var TIPOPAGAMENTO = hAPI.getCardValue(&quot;tipoPagamentoBaba&quot;);
+		var ANOPAGTO = hAPI.getCardValue(&quot;dataPagamentoBaba&quot;).substr(3);
+		var MESPAGTO =  hAPI.getCardValue(&quot;dataPagamentoBaba&quot;).substr(0,2);
+		var VALOR = hAPI.getCardValue(&quot;valorPagamentoBaba&quot;).replace(&quot;R$ &quot;,&quot;&quot;).replace(&quot;.&quot;,&quot;&quot;);
+	}
+
+	for (var i = 1; i &lt;= quantidade; i++) {
+
+		if(TIPOREEMBOLSO == &quot;1&quot;){
+			var TIPOPAGAMENTO = hAPI.getCardValue(&quot;tipoPagamentoAuxilio___&quot;+i);
+			var ANOPAGTO = hAPI.getCardValue(&quot;dataPagamentoAuxilio___&quot;+i).substr(3);
+			var MESPAGTO = hAPI.getCardValue(&quot;dataPagamentoAuxilio___&quot;+i).substr(0,2);
+			var VALOR = hAPI.getCardValue(&quot;valorPagamentoAuxilio___&quot;+i).replace(&quot;R$ &quot;,&quot;&quot;).replace(&quot;.&quot;,&quot;&quot;);
+		}
+		
+		var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);
+		var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);
+		var NRODEPEND = hAPI.getCardValue(&quot;idDependente&quot;);
+		var DTSOLICITACAO = hAPI.getCardValue(&quot;dtSolicitacao&quot;);
+		var DTAPROVACAO = hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0,10);
+		var NRSOLICITACAO = hAPI.getCardValue(&quot;WKNumProces&quot;);
+		var DTCOMPETENCIA = formataData(DTSOLICITACAO);
+		var MESCOMP = DTCOMPETENCIA.substr(5, 2);
+		var ANOCOMP = DTCOMPETENCIA.substr(0, 4);
+		
+		var CPF = String(hAPI.getCardValue(&quot;cpfBaba&quot;)).replace(/[^0-9]/g, &apos;&apos;);	
+		var CNPJ = String(hAPI.getCardValue(&quot;cnpjAuxilio&quot;)).replace(/[^0-9]/g, &apos;&apos;);
+	
+		newElement += &quot;&lt;ZMDREEMBOLSO&gt;&quot;;
+		newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);
+		newElement += setNode(&quot;CHAPA&quot;, CHAPA);
+		newElement += setNode(&quot;NRODEPEND&quot;, NRODEPEND);
+		newElement += setNode(&quot;DTSOLICITACAO&quot;, DTSOLICITACAO);
+		newElement += setNode(&quot;TIPOPAGAMENTO&quot;, TIPOPAGAMENTO);
+		newElement += setNode(&quot;TIPOREEMBOLSO&quot;, TIPOREEMBOLSO);
+		newElement += setNode(&quot;CNPJ&quot;, CNPJ);
+		newElement += setNode(&quot;CPF&quot;, CPF);
+		newElement += setNode(&quot;ANOPAGTO&quot;, ANOPAGTO);
+		newElement += setNode(&quot;MESPAGTO&quot;, MESPAGTO);
+		newElement += setNode(&quot;VALOR&quot;, VALOR);
+		newElement += setNode(&quot;DTAPROVACAO&quot;, DTAPROVACAO);
+		newElement += setNode(&quot;NRSOLICITACAO&quot;, NRSOLICITACAO);
+		newElement += setNode(&quot;MESCOMP&quot;, MESCOMP);
+		newElement += setNode(&quot;ANOCOMP&quot;, ANOCOMP);
+		newElement += &quot;&lt;/ZMDREEMBOLSO&gt;&quot;;
+	}
+
+	newElement += &quot;&lt;/PRJ4921856&gt;&quot;;
+
+	return newElement;
+}
+
+
+function setNode(node, valor) {
+	var line = createNode(node) + valor + createNode(&quot;/&quot; + node);
+	return line;
+}
+
+function createNode(node) {
+	return &quot;&lt;&quot; + node + &quot;&gt;&quot;;
+}
+
+function formataData(dataAbertura) {
+    var dataFormatoMesDiaAno = dataAbertura.split(&quot;/&quot;);
+    dataFormatoMesDiaAno = dataFormatoMesDiaAno[1] + &quot;/&quot; + dataFormatoMesDiaAno[0] + &quot;/&quot; + dataFormatoMesDiaAno[2];
+    var dataAberturaSolicitacao = new Date(dataFormatoMesDiaAno);
+    var diaCorte = parseInt(hAPI.getCardValue(&quot;diaCorte&quot;));
+
+    // Verifica se o dia da data de abertura é maior que o dia de corte
+    if (dataAberturaSolicitacao.getDate() &gt; diaCorte) {
+        // Salva o dia original
+        var diaOriginal = dataAberturaSolicitacao.getDate();
+        
+        // Adiciona 1 mês à data atual
+        dataAberturaSolicitacao.setMonth(dataAberturaSolicitacao.getMonth() + 1);
+        
+        // Se o novo dia for menor que o dia original, ajusta para o último dia do novo mês
+        if (dataAberturaSolicitacao.getDate() &lt; diaOriginal) {
+            dataAberturaSolicitacao.setDate(0); // O dia 0 do mês seguinte é o último dia do mês atual
+        }
+
+        var ano = dataAberturaSolicitacao.getFullYear();
+        var mes = dataAberturaSolicitacao.getMonth() + 1; // Meses são indexados de 0 a 11
+        var dia = dataAberturaSolicitacao.getDate();
+
+        // Formata a nova data para &apos;YYYY-MM-DD&apos;
+        var dataFormatada = ano + &apos;-&apos; + (mes &lt; 10 ? &apos;0&apos; + mes : mes) + &apos;-&apos; + (dia &lt; 10 ? &apos;0&apos; + dia : dia);
+        return dataFormatada;
+    } else {
+        // A data não precisa ser modificada, apenas formata para &apos;YYYY-MM-DD&apos;
+        var partes = dataAbertura.split(&quot;/&quot;);
+        return partes[2] + &quot;-&quot; + partes[1] + &quot;-&quot; + partes[0];
+    }
+}
 </eventDescription>
     </WorkflowProcessEvent>
   </list>
@@ -908,8 +992,19 @@ function formataData(dataAbertura) {&#xd;
         <linkSequence>26</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>683</positionX>
-      <positionY>101</positionY>
+      <positionX>687</positionX>
+      <positionY>100</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>wf_solicitacao_reembolso</processId>
+        <version>8</version>
+        <linkSequence>27</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>195</positionX>
+      <positionY>117</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
