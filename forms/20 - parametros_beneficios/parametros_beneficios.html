@@ -1,0 +1,93 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+	<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<div class="page-header">
+			<h1>Parâmetros de benefícios</h1>
+		</div>
+		<form name="form" role="form">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Idade máxima elegível para reembolso de auxilio creche e babá</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label class="control-label" for="mae">Para a mãe</label>
+							<input type="text" name="mae" id="mae" class="form-control"/>
+						</div>
+						<div class="col-md-6 form-group">
+							<label class="control-label" for="pai">Para o pai</label>
+							<input type="text" name="pai" id="pai" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Dia de corte folha de pagamento</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12 form-group">
+							<label class="control-label" for="diaCorte">Dia (Solicitações de reembolso ou benefícios feitos após esse dia serão considerados apenas na folha de pagamento seguinte ao mês corrente.)</label>
+							<input type="text" name="diaCorte" id="diaCorte" class="form-control"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Plano odontológico</h3>
+				</div>
+				<div class="panel-body">
+					<!-- <div class="row">
+						<div class="col-md-12">
+							<label class="control-label"> Inclusão/exclusão do benefício</label><br>
+							<div class="custom-checkbox">
+								<input type="checkbox" name="adesao" id="adesao" value="adesao" />
+								<label for="adesao">Permite adesão ao plano odontológico</label>
+							</div>
+							<div class="custom-checkbox">
+								<input type="checkbox" name="exclusao" id="exclusao" value="exclusao">
+								<label for="exclusao">Permite exclusão ao plano odontológico</label>
+							</div>
+						</div>
+					</div><br> -->
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="custom-checkbox">
+								<input type="checkbox" name="alteracao" id="alteracao" value="alteracao">
+								<label for="alteracao">Permite alteração do plano odontológico</label>
+							</div>
+						</div>
+					</div><br>
+					<div class="row">
+						<div class="col-md-4 form-group">
+							<label class="control-label" for="dataInicio">Data inicio para alteração do plano odontológico</label>
+							<input type="text" name="dataInicio" id="dataInicio" class="form-control" mask="00/00/0000"/>
+						</div>
+						<div class="col-md-4 form-group">
+							<label class="control-label" for="dataLimite">Data limite para alteração do plano odontológico</label>
+							<input type="text" name="dataLimite" id="dataLimite" class="form-control" mask="00/00/0000"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

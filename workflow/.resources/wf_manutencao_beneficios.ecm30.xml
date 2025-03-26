@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitação e manutenção de benefícios</processId>
-      <version>20</version>
+      <version>1</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>16</formId>
+    <formId>6</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -476,7 +476,7 @@
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
         <expressionOrder>1</expressionOrder>
-        <version>20</version>
+        <version>1</version>
         <sequence>11</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Aprovado&quot;</condition>
@@ -488,7 +488,7 @@
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
         <expressionOrder>2</expressionOrder>
-        <version>20</version>
+        <version>1</version>
         <sequence>11</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Reprovado&quot;</condition>
@@ -500,7 +500,7 @@
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
         <expressionOrder>3</expressionOrder>
-        <version>20</version>
+        <version>1</version>
         <sequence>11</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Ajustar&quot;</condition>
@@ -841,272 +841,272 @@ function parseData(dataString) {&#xd;
         <processId>wf_manutencao_beneficios</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask21() {
-
-    try {
-
-        var status = false;
-        var xml;
-        var result;
-        var CODBENEFICIO;
-        var BENEFICIO;
-        var codBeneficioAntigo;
-        var dataBeneficioAntigo;
-        var tabela = hAPI.getChildrenIndexes(&quot;tblLinhasValeTransporte&quot;).length;
-
-        if (hAPI.getCardValue(&quot;alteraEndereco&quot;) == &quot;true&quot;) {
-            var newElement = &quot;&lt;FopFunc&gt;&lt;PFunc&gt;&quot;;
-            newElement += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));
-            newElement += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));
-            newElement += setNode(&quot;RUA&quot;, hAPI.getCardValue(&quot;enderecoLogradouro&quot;));
-            newElement += setNode(&quot;NUMERO&quot;, hAPI.getCardValue(&quot;enderecoNumero&quot;));
-            newElement += setNode(&quot;BAIRRO&quot;, hAPI.getCardValue(&quot;enderecoBairro&quot;));
-            newElement += setNode(&quot;CIDADE&quot;, hAPI.getCardValue(&quot;enderecoCidade&quot;));
-            newElement += setNode(&quot;ESTADO&quot;, hAPI.getCardValue(&quot;enderecoEstado&quot;));
-            newElement += setNode(&quot;CEP&quot;, hAPI.getCardValue(&quot;enderecoCep&quot;));
-            newElement += setNode(&quot;COMPLEMENTO&quot;, hAPI.getCardValue(&quot;enderecoComplemento&quot;));
-            newElement += &quot;&lt;/PFunc&gt;&lt;/FopFunc&gt;&quot;;
-
-            result = saveRecord(newElement, &quot;FopFuncData&quot;);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-
-        if (hAPI.getCardValue(&quot;excluiVT&quot;) == &quot;true&quot;) {
-            var xmlExcluir = &quot;&lt;FopHstValeTr&gt;&quot;;
-            for (var i = 1; i &lt;= tabela; i++) {
-                xmlExcluir += &quot;&lt;PFValeTr&gt;&quot;
-                xmlExcluir += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));
-                xmlExcluir += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));
-                xmlExcluir += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));
-                xmlExcluir += setNode(&quot;DTINICIO&quot;, hAPI.getCardValue(&quot;dtInicio___&quot; + i));
-                xmlExcluir += &quot;&lt;/PFValeTr&gt;&quot;
-            }
-            xmlExcluir += &quot;&lt;/FopHstValeTr&gt;&quot;;
-            result = deleteRecord(xmlExcluir, &quot;FopHstValeTrData&quot;);
-            String(result).replace(/[\r\n]+/g, &apos;&apos;) == &quot;Exclusão de registro(s) realizado com sucesso&quot; ? status = true : (function () { throw result })();
-
-        }
-        else if (tabela &gt; 0) {
-            var newElement = &quot;&lt;FopHstValeTr&gt;&quot;;
-            var xmlExcluir = &quot;&lt;FopHstValeTr&gt;&quot;;
-            var ativar = false;
-            var excluir = false;
-
-            for (var i = 1; i &lt;= tabela; i++) {
-                var status = hAPI.getCardValue(&quot;desativar___&quot; + i)
-                var DTINICIO = hAPI.getCardValue(&quot;dtInicio___&quot; + i) != &quot;&quot; ? hAPI.getCardValue(&quot;dtInicio___&quot; + i) : hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10);
-
-                if (status == &quot;ativo&quot;) {
-                    ativar = true;
-                    newElement += &quot;&lt;PFValeTr&gt;&quot;
-                    newElement += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));
-                    newElement += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));
-                    newElement += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));
-                    newElement += setNode(&quot;DTINICIO&quot;, DTINICIO);
-                    newElement += setNode(&quot;NROVIAGENS&quot;, hAPI.getCardValue(&quot;quantidadeTransporte___&quot; + i));
-                    newElement += &quot;&lt;/PFValeTr&gt;&quot;
-                } else {
-                    excluir = true;
-                    xmlExcluir += &quot;&lt;PFValeTr&gt;&quot;
-                    xmlExcluir += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));
-                    xmlExcluir += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));
-                    xmlExcluir += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));
-                    xmlExcluir += setNode(&quot;DTINICIO&quot;, DTINICIO);
-                    xmlExcluir += &quot;&lt;/PFValeTr&gt;&quot;
-                }
-            }
-
-            if (excluir) {
-                xmlExcluir += &quot;&lt;/FopHstValeTr&gt;&quot;;
-                result = deleteRecord(xmlExcluir, &quot;FopHstValeTrData&quot;);
-                String(result).replace(/[\r\n]+/g, &apos;&apos;) == &quot;Exclusão de registro(s) realizado com sucesso&quot; ? status = true : (function () { throw result })();
-            }
-            if (ativar) {
-                newElement += &quot;&lt;/FopHstValeTr&gt;&quot;;
-                result = saveRecord(newElement, &quot;FopHstValeTrData&quot;);
-                result == &quot;true&quot; ? status = true : (function () { throw result })();
-            }
-        }
-
-        if (hAPI.getCardValue(&quot;codValeRefeicaoNovo&quot;) != &quot;&quot;) {
-
-            codBeneficioAntigo = hAPI.getCardValue(&quot;codValeRefeicaoAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codValeRefeicaoAtual&quot;);
-            if (codBeneficioAntigo) {
-                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataValeRefeicaoAtual&quot;);
-                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);
-                result == &quot;true&quot; ? status = true : (function () { throw result })();
-            }
-
-            CODBENEFICIO = hAPI.getCardValue(&quot;codValeRefeicaoNovo&quot;);
-            BENEFICIO = hAPI.getCardValue(&quot;nomeValeRefeicaoNovo&quot;);
-            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);
-            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-        if (hAPI.getCardValue(&quot;codPlanoOdontologicoNovo&quot;) != &quot;&quot;) {
-
-            codBeneficioAntigo = hAPI.getCardValue(&quot;codPlanoOdontologicoAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codPlanoOdontologicoAtual&quot;);
-            if (codBeneficioAntigo) {
-                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPlanoOdontologicoAtual&quot;)
-                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);
-                result == &quot;true&quot; ? status = true : (function () { throw result })();
-            }
-
-            CODBENEFICIO = hAPI.getCardValue(&quot;codPlanoOdontologicoNovo&quot;);
-            BENEFICIO = hAPI.getCardValue(&quot;nomePlanoOdontologicoNovo&quot;);
-            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);
-            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-        if (hAPI.getCardValue(&quot;codPrevidenciaPrivadaNovo&quot;) != &quot;&quot;) {
-
-            codBeneficioAntigo = hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;);
-            if (codBeneficioAntigo) {
-                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPrevidenciaPrivadaAtual&quot;)
-                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);
-                result == &quot;true&quot; ? status = true : (function () { throw result })();
-            }
-
-            CODBENEFICIO = hAPI.getCardValue(&quot;codPrevidenciaPrivadaNovo&quot;);
-            BENEFICIO = hAPI.getCardValue(&quot;nomePrevidenciaPrivadaNovo&quot;);
-            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);
-            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-        if (hAPI.getCardValue(&quot;codSeguroVidaNovo&quot;) != &quot;&quot;) {
-
-            codBeneficioAntigo = hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;);
-            if (codBeneficioAntigo) {
-                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataSeguroVidaAtual&quot;)
-                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);
-                result == &quot;true&quot; ? status = true : (function () { throw result })();
-            }
-
-            CODBENEFICIO = hAPI.getCardValue(&quot;codSeguroVidaNovo&quot;);
-            BENEFICIO = hAPI.getCardValue(&quot;nomeSeguroVidaNovo&quot;);
-            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);
-            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-
-        if (hAPI.getCardValue(&quot;excluiPrevidencia&quot;) == &quot;true&quot;) {
-            codBeneficioAntigo = hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;)
-            dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPrevidenciaPrivadaAtual&quot;)
-            result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-        if (hAPI.getCardValue(&quot;excluiSeguroVida&quot;) == &quot;true&quot;) {
-            codBeneficioAntigo = hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;)
-            dataBeneficioAntigo = hAPI.getCardValue(&quot;dataSeguroVidaAtual&quot;)
-            result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);
-            result == &quot;true&quot; ? status = true : (function () { throw result })();
-        }
-
-        return status;
-
-    } catch (error) {
-        log.info(&quot;Erro ao integrar com o RM: &quot; + error);
-        throw error;
-    }
-}
-
-function createXmlBeneficios(codigo, nome) {
-
-    var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);
-    var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);
-    var DTINIVIGENCIA = formataData(hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10));
-
-    var newElement = &quot;&lt;VBENEFFUNC&gt;&quot;;
-
-    newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);
-    newElement += setNode(&quot;CHAPA&quot;, CHAPA);
-    newElement += setNode(&quot;CODBENEFICIO&quot;, codigo);
-    newElement += setNode(&quot;DTINIVIGENCIA&quot;, DTINIVIGENCIA);
-    newElement += setNode(&quot;AUTOVINC&quot;, &quot;0&quot;);
-    newElement += setNode(&quot;BENEFICIO&quot;, nome);
-
-    newElement += &quot;&lt;/VBENEFFUNC&gt;&quot;;
-
-    return newElement;
-}
-
-function setNode(node, valor) {
-    var line = createNode(node) + valor + createNode(&quot;/&quot; + node);
-    return line;
-}
-
-function createNode(node) {
-    return &quot;&lt;&quot; + node + &quot;&gt;&quot;;
-}
-
-function saveRecord(xml, dataServer) {
-    log.info(&quot; @@@@@ XML&quot; + xml);
-    var contraint = [];
-    contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));
-    contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, dataServer, dataServer, ConstraintType.MUST));
-    var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);
-
-    if (saveRecord != null &amp;&amp; saveRecord.values.length &gt; 0) {
-        var succes = saveRecord.getValue(0, &quot;success&quot;);
-        if (succes == &quot;true&quot;) {
-            log.info(&quot;Sucesso ao integrar com o RM.&quot;);
-            return succes;
-        } else {
-            return saveRecord.getValue(0, &quot;result&quot;);
-        }
-
-    } else {
-        throw &quot;Erro no dataset saveRecord_rm&quot;;
-    }
-}
-
-function deleteRecord(xml, dataServer) {
-    log.info(&quot; @@@@@ XML&quot; + xml);
-    var contraint = [];
-    contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));
-    contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, dataServer, dataServer, ConstraintType.MUST));
-    var deleteRecord = DatasetFactory.getDataset(&quot;deleteRecord_RM&quot;, null, contraint, null);
-
-    if (deleteRecord != null &amp;&amp; deleteRecord.values.length &gt; 0) {
-        return deleteRecord.getValue(0, &quot;result&quot;)
-
-    } else {
-        throw &quot;Erro no dataset deleteRecord_RM&quot;;
-    }
-}
-
-
-
-function desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo) {
-
-    var chapa = hAPI.getCardValue(&quot;chapaColaborador&quot;);
-    var dataDesvinculacao = formataData(hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10));
-
-    var contraint = [];
-    contraint.push(DatasetFactory.createConstraint(&quot;chapa&quot;, chapa, chapa, ConstraintType.MUST))
-    contraint.push(DatasetFactory.createConstraint(&quot;codBeneficio&quot;, codBeneficioAntigo, codBeneficioAntigo, ConstraintType.MUST));
-    contraint.push(DatasetFactory.createConstraint(&quot;dataInicio&quot;, dataBeneficioAntigo, dataBeneficioAntigo, ConstraintType.MUST));
-    contraint.push(DatasetFactory.createConstraint(&quot;dataDesvinculacao&quot;, dataDesvinculacao, dataDesvinculacao, ConstraintType.MUST));
-    var process = DatasetFactory.getDataset(&quot;ds_desvincular_beneficios_rm&quot;, null, contraint, null);
-
-    if (process != null &amp;&amp; process.values.length &gt; 0) {
-
-        var succes = process.getValue(0, &quot;success&quot;);
-        if (succes == &quot;true&quot;) {
-            log.info(&quot;Sucesso ao integrar com o RM.&quot; + process);
-            return succes;
-        } else {
-            return process.getValue(0, &quot;result&quot;);
-        }
-
-    } else {
-        throw &quot;Erro no dataset ds_desvincular_beneficios_rm&quot;;
-    }
-}
-
-function formataData(data) {
-    var partes = data.split(&quot;/&quot;);
-    return partes[2] + &quot;-&quot; + partes[1] + &quot;-&quot; + partes[0];
+      <eventDescription>function servicetask21() {&#xd;
+&#xd;
+    try {&#xd;
+&#xd;
+        var status = false;&#xd;
+        var xml;&#xd;
+        var result;&#xd;
+        var CODBENEFICIO;&#xd;
+        var BENEFICIO;&#xd;
+        var codBeneficioAntigo;&#xd;
+        var dataBeneficioAntigo;&#xd;
+        var tabela = hAPI.getChildrenIndexes(&quot;tblLinhasValeTransporte&quot;).length;&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;alteraEndereco&quot;) == &quot;true&quot;) {&#xd;
+            var newElement = &quot;&lt;FopFunc&gt;&lt;PFunc&gt;&quot;;&#xd;
+            newElement += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+            newElement += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+            newElement += setNode(&quot;RUA&quot;, hAPI.getCardValue(&quot;enderecoLogradouro&quot;));&#xd;
+            newElement += setNode(&quot;NUMERO&quot;, hAPI.getCardValue(&quot;enderecoNumero&quot;));&#xd;
+            newElement += setNode(&quot;BAIRRO&quot;, hAPI.getCardValue(&quot;enderecoBairro&quot;));&#xd;
+            newElement += setNode(&quot;CIDADE&quot;, hAPI.getCardValue(&quot;enderecoCidade&quot;));&#xd;
+            newElement += setNode(&quot;ESTADO&quot;, hAPI.getCardValue(&quot;enderecoEstado&quot;));&#xd;
+            newElement += setNode(&quot;CEP&quot;, hAPI.getCardValue(&quot;enderecoCep&quot;));&#xd;
+            newElement += setNode(&quot;COMPLEMENTO&quot;, hAPI.getCardValue(&quot;enderecoComplemento&quot;));&#xd;
+            newElement += &quot;&lt;/PFunc&gt;&lt;/FopFunc&gt;&quot;;&#xd;
+&#xd;
+            result = saveRecord(newElement, &quot;FopFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;excluiVT&quot;) == &quot;true&quot;) {&#xd;
+            var xmlExcluir = &quot;&lt;FopHstValeTr&gt;&quot;;&#xd;
+            for (var i = 1; i &lt;= tabela; i++) {&#xd;
+                xmlExcluir += &quot;&lt;PFValeTr&gt;&quot;&#xd;
+                xmlExcluir += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+                xmlExcluir += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+                xmlExcluir += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));&#xd;
+                xmlExcluir += setNode(&quot;DTINICIO&quot;, hAPI.getCardValue(&quot;dtInicio___&quot; + i));&#xd;
+                xmlExcluir += &quot;&lt;/PFValeTr&gt;&quot;&#xd;
+            }&#xd;
+            xmlExcluir += &quot;&lt;/FopHstValeTr&gt;&quot;;&#xd;
+            result = deleteRecord(xmlExcluir, &quot;FopHstValeTrData&quot;);&#xd;
+            String(result).replace(/[\r\n]+/g, &apos;&apos;) == &quot;Exclusão de registro(s) realizado com sucesso&quot; ? status = true : (function () { throw result })();&#xd;
+&#xd;
+        }&#xd;
+        else if (tabela &gt; 0) {&#xd;
+            var newElement = &quot;&lt;FopHstValeTr&gt;&quot;;&#xd;
+            var xmlExcluir = &quot;&lt;FopHstValeTr&gt;&quot;;&#xd;
+            var ativar = false;&#xd;
+            var excluir = false;&#xd;
+&#xd;
+            for (var i = 1; i &lt;= tabela; i++) {&#xd;
+                var status = hAPI.getCardValue(&quot;desativar___&quot; + i)&#xd;
+                var DTINICIO = hAPI.getCardValue(&quot;dtInicio___&quot; + i) != &quot;&quot; ? hAPI.getCardValue(&quot;dtInicio___&quot; + i) : hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10);&#xd;
+&#xd;
+                if (status == &quot;ativo&quot;) {&#xd;
+                    ativar = true;&#xd;
+                    newElement += &quot;&lt;PFValeTr&gt;&quot;&#xd;
+                    newElement += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+                    newElement += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+                    newElement += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));&#xd;
+                    newElement += setNode(&quot;DTINICIO&quot;, DTINICIO);&#xd;
+                    newElement += setNode(&quot;NROVIAGENS&quot;, hAPI.getCardValue(&quot;quantidadeTransporte___&quot; + i));&#xd;
+                    newElement += &quot;&lt;/PFValeTr&gt;&quot;&#xd;
+                } else {&#xd;
+                    excluir = true;&#xd;
+                    xmlExcluir += &quot;&lt;PFValeTr&gt;&quot;&#xd;
+                    xmlExcluir += setNode(&quot;CODCOLIGADA&quot;, hAPI.getCardValue(&quot;idEmpresa&quot;));&#xd;
+                    xmlExcluir += setNode(&quot;CHAPA&quot;, hAPI.getCardValue(&quot;chapaColaborador&quot;));&#xd;
+                    xmlExcluir += setNode(&quot;CODLINHA&quot;, hAPI.getCardValue(&quot;codLinha___&quot; + i));&#xd;
+                    xmlExcluir += setNode(&quot;DTINICIO&quot;, DTINICIO);&#xd;
+                    xmlExcluir += &quot;&lt;/PFValeTr&gt;&quot;&#xd;
+                }&#xd;
+            }&#xd;
+&#xd;
+            if (excluir) {&#xd;
+                xmlExcluir += &quot;&lt;/FopHstValeTr&gt;&quot;;&#xd;
+                result = deleteRecord(xmlExcluir, &quot;FopHstValeTrData&quot;);&#xd;
+                String(result).replace(/[\r\n]+/g, &apos;&apos;) == &quot;Exclusão de registro(s) realizado com sucesso&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+            if (ativar) {&#xd;
+                newElement += &quot;&lt;/FopHstValeTr&gt;&quot;;&#xd;
+                result = saveRecord(newElement, &quot;FopHstValeTrData&quot;);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+        }&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;codValeRefeicaoNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codValeRefeicaoAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codValeRefeicaoAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataValeRefeicaoAtual&quot;);&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codValeRefeicaoNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomeValeRefeicaoNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;codPlanoOdontologicoNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codPlanoOdontologicoAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codPlanoOdontologicoAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPlanoOdontologicoAtual&quot;)&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codPlanoOdontologicoNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomePlanoOdontologicoNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;codPrevidenciaPrivadaNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPrevidenciaPrivadaAtual&quot;)&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codPrevidenciaPrivadaNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomePrevidenciaPrivadaNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;codSeguroVidaNovo&quot;) != &quot;&quot;) {&#xd;
+&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;) == &quot;&quot; ? false : hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;);&#xd;
+            if (codBeneficioAntigo) {&#xd;
+                dataBeneficioAntigo = hAPI.getCardValue(&quot;dataSeguroVidaAtual&quot;)&#xd;
+                result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+                result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+            }&#xd;
+&#xd;
+            CODBENEFICIO = hAPI.getCardValue(&quot;codSeguroVidaNovo&quot;);&#xd;
+            BENEFICIO = hAPI.getCardValue(&quot;nomeSeguroVidaNovo&quot;);&#xd;
+            xml = createXmlBeneficios(CODBENEFICIO, BENEFICIO);&#xd;
+            result = saveRecord(xml, &quot;RhuBenefFuncData&quot;);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+&#xd;
+        if (hAPI.getCardValue(&quot;excluiPrevidencia&quot;) == &quot;true&quot;) {&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codPrevidenciaPrivadaAtual&quot;)&#xd;
+            dataBeneficioAntigo = hAPI.getCardValue(&quot;dataPrevidenciaPrivadaAtual&quot;)&#xd;
+            result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+        if (hAPI.getCardValue(&quot;excluiSeguroVida&quot;) == &quot;true&quot;) {&#xd;
+            codBeneficioAntigo = hAPI.getCardValue(&quot;codSeguroVidaAtual&quot;)&#xd;
+            dataBeneficioAntigo = hAPI.getCardValue(&quot;dataSeguroVidaAtual&quot;)&#xd;
+            result = desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo);&#xd;
+            result == &quot;true&quot; ? status = true : (function () { throw result })();&#xd;
+        }&#xd;
+&#xd;
+        return status;&#xd;
+&#xd;
+    } catch (error) {&#xd;
+        log.info(&quot;Erro ao integrar com o RM: &quot; + error);&#xd;
+        throw error;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function createXmlBeneficios(codigo, nome) {&#xd;
+&#xd;
+    var CODCOLIGADA = hAPI.getCardValue(&quot;idEmpresa&quot;);&#xd;
+    var CHAPA = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
+    var DTINIVIGENCIA = formataData(hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10));&#xd;
+&#xd;
+    var newElement = &quot;&lt;VBENEFFUNC&gt;&quot;;&#xd;
+&#xd;
+    newElement += setNode(&quot;CODCOLIGADA&quot;, CODCOLIGADA);&#xd;
+    newElement += setNode(&quot;CHAPA&quot;, CHAPA);&#xd;
+    newElement += setNode(&quot;CODBENEFICIO&quot;, codigo);&#xd;
+    newElement += setNode(&quot;DTINIVIGENCIA&quot;, DTINIVIGENCIA);&#xd;
+    newElement += setNode(&quot;AUTOVINC&quot;, &quot;0&quot;);&#xd;
+    newElement += setNode(&quot;BENEFICIO&quot;, nome);&#xd;
+&#xd;
+    newElement += &quot;&lt;/VBENEFFUNC&gt;&quot;;&#xd;
+&#xd;
+    return newElement;&#xd;
+}&#xd;
+&#xd;
+function setNode(node, valor) {&#xd;
+    var line = createNode(node) + valor + createNode(&quot;/&quot; + node);&#xd;
+    return line;&#xd;
+}&#xd;
+&#xd;
+function createNode(node) {&#xd;
+    return &quot;&lt;&quot; + node + &quot;&gt;&quot;;&#xd;
+}&#xd;
+&#xd;
+function saveRecord(xml, dataServer) {&#xd;
+    log.info(&quot; @@@@@ XML&quot; + xml);&#xd;
+    var contraint = [];&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, dataServer, dataServer, ConstraintType.MUST));&#xd;
+    var saveRecord = DatasetFactory.getDataset(&quot;saveRecord_rm&quot;, null, contraint, null);&#xd;
+&#xd;
+    if (saveRecord != null &amp;&amp; saveRecord.values.length &gt; 0) {&#xd;
+        var succes = saveRecord.getValue(0, &quot;success&quot;);&#xd;
+        if (succes == &quot;true&quot;) {&#xd;
+            log.info(&quot;Sucesso ao integrar com o RM.&quot;);&#xd;
+            return succes;&#xd;
+        } else {&#xd;
+            return saveRecord.getValue(0, &quot;result&quot;);&#xd;
+        }&#xd;
+&#xd;
+    } else {&#xd;
+        throw &quot;Erro no dataset saveRecord_rm&quot;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function deleteRecord(xml, dataServer) {&#xd;
+    log.info(&quot; @@@@@ XML&quot; + xml);&#xd;
+    var contraint = [];&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;xml&quot;, xml, xml, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataServer&quot;, dataServer, dataServer, ConstraintType.MUST));&#xd;
+    var deleteRecord = DatasetFactory.getDataset(&quot;deleteRecord_RM&quot;, null, contraint, null);&#xd;
+&#xd;
+    if (deleteRecord != null &amp;&amp; deleteRecord.values.length &gt; 0) {&#xd;
+        return deleteRecord.getValue(0, &quot;result&quot;)&#xd;
+&#xd;
+    } else {&#xd;
+        throw &quot;Erro no dataset deleteRecord_RM&quot;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+&#xd;
+&#xd;
+function desvincularBeneficio(codBeneficioAntigo, dataBeneficioAntigo) {&#xd;
+&#xd;
+    var chapa = hAPI.getCardValue(&quot;chapaColaborador&quot;);&#xd;
+    var dataDesvinculacao = formataData(hAPI.getCardValue(&quot;dataAprovacao&quot;).substr(0, 10));&#xd;
+&#xd;
+    var contraint = [];&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;chapa&quot;, chapa, chapa, ConstraintType.MUST))&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;codBeneficio&quot;, codBeneficioAntigo, codBeneficioAntigo, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataInicio&quot;, dataBeneficioAntigo, dataBeneficioAntigo, ConstraintType.MUST));&#xd;
+    contraint.push(DatasetFactory.createConstraint(&quot;dataDesvinculacao&quot;, dataDesvinculacao, dataDesvinculacao, ConstraintType.MUST));&#xd;
+    var process = DatasetFactory.getDataset(&quot;ds_desvincular_beneficios_rm&quot;, null, contraint, null);&#xd;
+&#xd;
+    if (process != null &amp;&amp; process.values.length &gt; 0) {&#xd;
+&#xd;
+        var succes = process.getValue(0, &quot;success&quot;);&#xd;
+        if (succes == &quot;true&quot;) {&#xd;
+            log.info(&quot;Sucesso ao integrar com o RM.&quot; + process);&#xd;
+            return succes;&#xd;
+        } else {&#xd;
+            return process.getValue(0, &quot;result&quot;);&#xd;
+        }&#xd;
+&#xd;
+    } else {&#xd;
+        throw &quot;Erro no dataset ds_desvincular_beneficios_rm&quot;;&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+function formataData(data) {&#xd;
+    var partes = data.split(&quot;/&quot;);&#xd;
+    return partes[2] + &quot;-&quot; + partes[1] + &quot;-&quot; + partes[0];&#xd;
 }</eventDescription>
     </WorkflowProcessEvent>
   </list>
@@ -1184,7 +1184,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>20</version>
+        <version>1</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1195,7 +1195,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>20</version>
+        <version>1</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1206,7 +1206,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>20</version>
+        <version>1</version>
         <linkSequence>20</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1217,7 +1217,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>20</version>
+        <version>1</version>
         <linkSequence>28</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>

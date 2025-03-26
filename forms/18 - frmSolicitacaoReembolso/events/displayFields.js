@@ -14,7 +14,7 @@ function displayFields(form,customHTML){
     var retornoColleague = DatasetFactory.getDataset("colleague", fields, filter, null);
     var idExterno = retornoColleague.getValue(0, "colleaguePK.colleagueId");
     if (idExterno == 'b8bbd8be8929414ab255699de0c7640f') {
-        idExterno = "fb42dc0ff40d4565b916b358d8ebeeb0" //AMBIENTE QA
+        // idExterno = "fb42dc0ff40d4565b916b358d8ebeeb0" //AMBIENTE QA
     }
     if (idExterno == 'gabriela.vieira') {
         idExterno = "dddc3e710d304fa1a0edc51eadad2c0c" //AMBIENTE PROD
