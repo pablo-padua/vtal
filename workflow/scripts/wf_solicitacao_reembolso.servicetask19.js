@@ -44,7 +44,13 @@ function createXml() {
 		var TIPOPAGAMENTO = hAPI.getCardValue("tipoPagamentoBaba");
 		var ANOPAGTO = hAPI.getCardValue("dataPagamentoBaba").substr(3);
 		var MESPAGTO =  hAPI.getCardValue("dataPagamentoBaba").substr(0,2);
-		var VALOR = hAPI.getCardValue("valorPagamentoBaba")
+		log.info("LOGVALORPAGAMENTO: " + hAPI.getCardValue("valorPagamentoBaba"));
+		log.info("SOLICITACAO: "+ hAPI.getCardValue("WKNumProces"));
+		var VALOR = String(hAPI.getCardValue("valorPagamentoBaba"));
+		if (!VALOR || VALOR == "") {
+			throw "O campo 'Valor do pagamento da babá' está vazio.";
+		}
+		VALOR = VALOR
 		.replace(/[^0-9,.]/g, '') // Remove todos os caracteres que não sejam números, vírgulas ou pontos
 		.replace(/\./g, '') // Remove todos os pontos
 	}
@@ -55,7 +61,13 @@ function createXml() {
 			var TIPOPAGAMENTO = hAPI.getCardValue("tipoPagamentoAuxilio___"+i);
 			var ANOPAGTO = hAPI.getCardValue("dataPagamentoAuxilio___"+i).substr(3);
 			var MESPAGTO = hAPI.getCardValue("dataPagamentoAuxilio___"+i).substr(0,2);
-			var VALOR = hAPI.getCardValue("valorPagamentoAuxilio___"+i)
+			log.info("LOGVALORPAGAMENTO: " + hAPI.getCardValue("valorPagamentoAuxilio___"+i));
+			log.info("SOLICITACAO: "+ hAPI.getCardValue("WKNumProces"));
+			var VALOR = String(hAPI.getCardValue("valorPagamentoAuxilio___"+i));
+			if (!VALOR || VALOR == "") {
+				throw "O campo 'Valor do pagamento do auxílio creche' está vazio.";
+			}
+			VALOR = VALOR
 			.replace(/[^0-9,.]/g, '') // Remove todos os caracteres que não sejam números, vírgulas ou pontos
 			.replace(/\./g, '') // Remove todos os pontos
 		}

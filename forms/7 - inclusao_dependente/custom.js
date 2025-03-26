@@ -550,6 +550,7 @@ $(document).ready(function () {
 	});
 	mostraAlteraBfcPcd();
 	mostraImpostoRenda();
+	verificaBotaoTipoSolicitacao();
 });
 
 function mostraImpostoRenda() {
@@ -575,5 +576,13 @@ function mostraImpostoRenda() {
 		$("#temIR").val("");
 		$("#DTINCLUSAOIR").val("");
 		$("#DTEXCLUSAOIR").val("");
+	}
+}
+
+function verificaBotaoTipoSolicitacao() {
+	const marcado = $("input[name=tipoSolicitacao]:checked").length > 0;
+	if (!marcado) {
+		const valor = $("#tipoSolicitacaoIncluirAlterar").val();
+		$(`input[name=tipoSolicitacao][value=${valor}]`).prop("checked", true);
 	}
 }
