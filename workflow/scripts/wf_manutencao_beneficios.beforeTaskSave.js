@@ -13,12 +13,9 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList) {
         }
 
         if (!chapaColaborador || chapaColaborador == "" || chapaColaborador == null || chapaColaborador == "null") {
-
-            var c1 = DatasetFactory.createConstraint("colleagueId", idExterno, idExterno, ConstraintType.MUST);
-	        var filter = new Array(c1);
-            var fields = new Array("colleagueName", "mail", "colleaguePK.colleagueId");
-	        var retornoColleague = DatasetFactory.getDataset("colleague", fields, filter, null);
-            if (!retornoColleague || !retornoColleague.rowsCount) {
+            
+            var idpId = fluigAPI.getUserService().getUser(idExterno).getExtraData("idpId");
+            if (!idpId || idpId == "" || idpId == null || idpId == "null" || idpId == undefined) {
                 throw "ID Externo inválido.";
             }
 
@@ -39,8 +36,8 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList) {
             var permiteOdonto = parametros.getValue(0, "alteracao") && dataAtual >= dataInicio && dataAtual <= dataLimite ? "true" : "false";
             hAPI.setCardValue("permiteOdonto", permiteOdonto);
 
-            var email = retornoColleague.getValue(0, "mail");
-            var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idExterno, idExterno, ConstraintType.MUST)]
+            var email = fluigAPI.getUserService().findById(idExterno).getEmail();
+            var contraintUsuario = [DatasetFactory.createConstraint("idExterno", idpId, idpId, ConstraintType.MUST)]
             var usuario = DatasetFactory.getDataset("ds_consulta_func_rm", null, contraintUsuario, null);
             if (!usuario || !usuario.rowsCount) {
                 throw "Funcionário não encontrado no RM com esse ID Externo.";
