@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Inclusão de dependente</processId>
-      <version>2</version>
+      <version>18</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>9</formId>
+    <formId>17</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -578,7 +578,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoRH&quot;) == &quot;aprovar&quot;</condition>
@@ -590,7 +590,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoRH&quot;) == &quot;reprovar&quot;</condition>
@@ -602,7 +602,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>3</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoRH&quot;) == &quot;ajustar&quot;</condition>
@@ -614,7 +614,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>25</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;true&quot; &amp;&amp; hAPI.getCardValue(&quot;isAlterarBnfPcd&quot;) == &quot;true&quot;</condition>
@@ -626,7 +626,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>25</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;true&quot; &amp;&amp; hAPI.getCardValue(&quot;isAlterarBnfPcd&quot;) == &quot;false&quot;</condition>
@@ -638,7 +638,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>3</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>25</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;IsDependentePCD&quot;) == &quot;false&quot;</condition>
@@ -650,7 +650,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>30</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoSaude&quot;) == &quot;aprovar&quot;</condition>
@@ -662,7 +662,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>30</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoSaude&quot;) == &quot;reprovar&quot;</condition>
@@ -674,7 +674,7 @@
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
         <expressionOrder>3</expressionOrder>
-        <version>2</version>
+        <version>18</version>
         <sequence>30</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacaoSaude&quot;) == &quot;ajustar&quot;</condition>
@@ -1291,7 +1291,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>15</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1302,7 +1302,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>29</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1313,7 +1313,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>32</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1324,7 +1324,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>32</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1335,7 +1335,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>33</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1346,7 +1346,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>33</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1357,7 +1357,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>34</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1368,7 +1368,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>36</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1379,7 +1379,7 @@ function createNode(node) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_inclusao_dependente</processId>
-        <version>2</version>
+        <version>18</version>
         <linkSequence>36</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>

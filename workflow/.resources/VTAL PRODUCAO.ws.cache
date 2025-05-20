@@ -777,5 +777,75 @@
     </void>
    </array>
   </void>
+  <void method="put">
+   <string>forms</string>
+   <object class="java.util.LinkedList">
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>FLUIGADHOCPROCESS</string>
+      </void>
+      <void property="documentDescription">
+       <string>FLUIGADHOCPROCESS</string>
+      </void>
+      <void property="documentId">
+       <int>4</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>dsManutencao_Beneficios</string>
+      </void>
+      <void property="documentDescription">
+       <string>frmManutencao_Beneficios</string>
+      </void>
+      <void property="documentId">
+       <int>16</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>dsInclusaoDependente</string>
+      </void>
+      <void property="documentDescription">
+       <string>frmInclusaoDependente</string>
+      </void>
+      <void property="documentId">
+       <int>17</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>dsSolicitacaoReembolso</string>
+      </void>
+      <void property="documentDescription">
+       <string>frmSolicitacaoReembolso</string>
+      </void>
+      <void property="documentId">
+       <int>18</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.technology.ecmrestclient.cardindexpublisher.FormVO">
+      <void property="datasetName">
+       <string>ds_parametros_beneficios</string>
+      </void>
+      <void property="documentDescription">
+       <string>parametros_beneficios</string>
+      </void>
+      <void property="documentId">
+       <int>20</int>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

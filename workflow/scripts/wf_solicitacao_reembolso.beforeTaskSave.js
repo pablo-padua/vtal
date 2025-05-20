@@ -45,6 +45,26 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
             hAPI.setCardValue("emailColaborador", email);
         }
     }
+    montaCampoIdentificador();
+}
+
+function montaCampoIdentificador() {
+    var string = hAPI.getCardValue("nomeColaborador") + " | "
+    var valorBaba = hAPI.getCardValue("valorPagamentoBaba");
+    var indicesTabelaCreche = hAPI.getChildrenIndexes("tabela_auxilio_creche");
+
+    for (var i = 0; i < indicesTabelaCreche.length; i++) {
+        var index = indicesTabelaCreche[i];
+        var valorAuxilio = hAPI.getCardValue("valorPagamentoAuxilio___" + index);
+        if (i != 0) string += ", ";
+        string += "Valor Auxílio "+ index + ": " + valorAuxilio + "";
+    }
+
+    if (valorBaba != "" && valorBaba != null) {
+        if (indicesTabelaCreche.length > 0) string += ", ";
+        string += "Valor Babá: " + valorBaba + "";
+    }
+    hAPI.setCardValue("identificador", string);
 }
 
 function getCurrentDate() {

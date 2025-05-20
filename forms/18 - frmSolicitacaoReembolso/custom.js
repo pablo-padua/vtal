@@ -38,7 +38,8 @@ function showAndBlock(activity) {
 }
 
 const mascaraMoeda = (field) => {
-  valor = field.value;
+  console.trace("mascaraMoeda triggered");
+  let valor = field.value;
   valor = valor.replace(
     /\D/g,
     ""
@@ -135,6 +136,11 @@ var beforeSendValidate = function (numState, nextState) {
   if (activity == 0 || activity == 4 || activity == 10) {
     if ($("#tipoReembolso").val() == "") {
       $(".tipo_reembolso").addClass("has-error");
+      erro++;
+    }
+    if ($("#idDependente").val() == "") {
+      $(".nome_dependente").addClass("has-error");
+      msg+= 'Não foi possível localizar o ID RM do dependente.<br>';
       erro++;
     }
     if ($("#nomeDependente").val() == "") {
@@ -402,7 +408,9 @@ function checkMatricula(field) {
         });
     }
 
-    count >= 12 ? (maximoMensalidades = true) : (maximoMensalidades = false);
+    if (count >= 12) {
+      maximoMensalidades = true
+    }
     if (maximoMensalidades) {
       FLUIGC.toast({
         title: "",
@@ -492,15 +500,20 @@ $(document).ready(function () {
       }
     }
 
-    if (activity == 5) {
+    if (activity == 5) { //Etapa Analisar Documentação
       showAndBlock([".inicio"]);
       typeReembolso();
       $(".aprovacao").show();
       $(".button").attr("disabled", true);
     }
-    if (activity == 10) {
+    if (activity == 10) {// Etapa Ajustar
       showAndBlock([".aprovacao"]);
       typeReembolso();
+      $(".hiddenButton").show();
+    }
+    if (activity == 21) { //Etapa tratativa TI
+      typeReembolso();
+      $(".aprovacao").show();
       $(".hiddenButton").show();
     }
   }

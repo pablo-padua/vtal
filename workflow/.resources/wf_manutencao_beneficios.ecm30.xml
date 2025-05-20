@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitação e manutenção de benefícios</processId>
-      <version>2</version>
+      <version>21</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>6</formId>
+    <formId>16</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -476,7 +476,7 @@
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>21</version>
         <sequence>11</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Aprovado&quot;</condition>
@@ -488,7 +488,7 @@
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>21</version>
         <sequence>11</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Reprovado&quot;</condition>
@@ -500,7 +500,7 @@
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
         <expressionOrder>3</expressionOrder>
-        <version>2</version>
+        <version>21</version>
         <sequence>11</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;radioAprovacao&quot;) == &quot;Ajustar&quot;</condition>
@@ -1181,7 +1181,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>2</version>
+        <version>21</version>
         <linkSequence>20</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1192,7 +1192,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>2</version>
+        <version>21</version>
         <linkSequence>20</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1203,7 +1203,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>2</version>
+        <version>21</version>
         <linkSequence>20</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1214,7 +1214,7 @@ function formataData(data) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_manutencao_beneficios</processId>
-        <version>2</version>
+        <version>21</version>
         <linkSequence>28</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>

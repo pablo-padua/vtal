@@ -29,10 +29,10 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Solicitação de reembolso </processId>
-      <version>2</version>
+      <version>13</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
-    <formId>7</formId>
+    <formId>18</formId>
     <editionMode>true</editionMode>
     <updateAttachmentsVersion>false</updateAttachmentsVersion>
     <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
@@ -477,7 +477,7 @@
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>13</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacao&quot;) == &quot;aprovar&quot;</condition>
@@ -489,7 +489,7 @@
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
         <expressionOrder>2</expressionOrder>
-        <version>2</version>
+        <version>13</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacao&quot;) == &quot;reprovar&quot;</condition>
@@ -501,7 +501,7 @@
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
         <expressionOrder>3</expressionOrder>
-        <version>2</version>
+        <version>13</version>
         <sequence>8</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovacao&quot;) == &quot;ajustar&quot;</condition>
@@ -737,6 +737,26 @@
             hAPI.setCardValue(&quot;emailColaborador&quot;, email);&#xd;
         }&#xd;
     }&#xd;
+    montaCampoIdentificador();&#xd;
+}&#xd;
+&#xd;
+function montaCampoIdentificador() {&#xd;
+    var string = hAPI.getCardValue(&quot;nomeColaborador&quot;) + &quot; | &quot;&#xd;
+    var valorBaba = hAPI.getCardValue(&quot;valorPagamentoBaba&quot;);&#xd;
+    var indicesTabelaCreche = hAPI.getChildrenIndexes(&quot;tabela_auxilio_creche&quot;);&#xd;
+&#xd;
+    for (var i = 0; i &lt; indicesTabelaCreche.length; i++) {&#xd;
+        var index = indicesTabelaCreche[i];&#xd;
+        var valorAuxilio = hAPI.getCardValue(&quot;valorPagamentoAuxilio___&quot; + index);&#xd;
+        if (i != 0) string += &quot;, &quot;;&#xd;
+        string += &quot;Valor Auxílio &quot;+ index + &quot;: &quot; + valorAuxilio + &quot;&quot;;&#xd;
+    }&#xd;
+&#xd;
+    if (valorBaba != &quot;&quot; &amp;&amp; valorBaba != null) {&#xd;
+        if (indicesTabelaCreche.length &gt; 0) string += &quot;, &quot;;&#xd;
+        string += &quot;Valor Babá: &quot; + valorBaba + &quot;&quot;;&#xd;
+    }&#xd;
+    hAPI.setCardValue(&quot;identificador&quot;, string);&#xd;
 }&#xd;
 &#xd;
 function getCurrentDate() {&#xd;
@@ -1000,7 +1020,7 @@ function formataData(dataAbertura) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
-        <version>2</version>
+        <version>13</version>
         <linkSequence>11</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1011,7 +1031,7 @@ function formataData(dataAbertura) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
-        <version>2</version>
+        <version>13</version>
         <linkSequence>16</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1022,7 +1042,7 @@ function formataData(dataAbertura) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
-        <version>2</version>
+        <version>13</version>
         <linkSequence>26</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1033,7 +1053,7 @@ function formataData(dataAbertura) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>wf_solicitacao_reembolso</processId>
-        <version>2</version>
+        <version>13</version>
         <linkSequence>27</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
