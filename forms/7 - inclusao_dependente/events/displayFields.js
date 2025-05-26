@@ -16,10 +16,10 @@ function displayFields(form, customHTML) {
 	var retornoColleague = DatasetFactory.getDataset("colleague", fields, filter, null);
 	var idExterno = fluigAPI.getUserService().getUser(userId).getExtraData("idpId");
 	if (idExterno == 'b8bbd8be8929414ab255699de0c7640f') {
-		idExterno = "b8bbd8be8929414ab255699de0c7640f" //AMBIENTE QA
+		idExterno = "b7d7fbfe2c344ce09b5203340d065b1a" //AMBIENTE QA
 	}
-	if (idExterno == 'gabriela.vieira') {
-		idExterno = "628985d9a0e44ce9986f54ebf726cde4" //AMBIENTE PROD
+	if (idExterno == '774fabb1af7e43babcf4de942acdd36f') {
+		idExterno = "7f7f30746a9a4b769f52eac2d5226b19" //AMBIENTE PROD
 	}
 
 	if (activity == 0 || activity == 3) { // Se for Inicio
@@ -71,6 +71,7 @@ function displayFields(form, customHTML) {
 	customHTML.append('<script>function getTask(){ return ' + activity + '; }</script>');
   	customHTML.append("<script>function getMode(){ return '" + form.getFormMode() + "'; }</script>");
   	customHTML.append("<script>function getUser(){ return '" + userId + "'; }</script>");
+  	customHTML.append("<script>function getUserIdExterno(){ return '" + idExterno + "'; }</script>");
   	customHTML.append('<script>function getCompany(){ return ' + getValue('WKCompany') + '; }</script>');
   	customHTML.append('<script>function getMobile(){ return ' + form.getMobile() + '; }</script>');
 }
